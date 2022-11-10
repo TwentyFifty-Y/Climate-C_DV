@@ -22,7 +22,7 @@ ChartJS.register(
   Legend
 );
 
-const chart = new Chart(ctx, config);
+// const chart = new Chart(ctx, config);
 
 export const options = {
   responsive: true,
@@ -99,16 +99,16 @@ export const data = {
   ],
 };
 
-function resetZoomButton() {
-  chart.resetZoom()
-}
+// function resetZoomButton() {
+//   chart.resetZoom()
+// }
 
 export default function v2() {
 
   return (
   <div>
     <Line options={options} data={data} />
-    <button onClick={resetZoomButton}>Reset zoom</button>
+    <button>Reset zoom</button>
   </div>
   );
 }
