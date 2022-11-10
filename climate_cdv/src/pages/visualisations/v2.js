@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,7 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { resetZoom } from 'chartjs-plugin-zoom';
+// import { resetZoom } from 'chartjs-plugin-zoom';
 
 ChartJS.register(
   CategoryScale,
@@ -110,13 +110,20 @@ const Text = () => {
   );
 };
 
-export default function v2() {
+export default function V2() {
+  const chartRef = useRef(null);
+
+  const handleResetZoom = () => {
+    if (chartRef && chartRef.current) {
+      chartRef.current.resetZoom();
+    }
+  };
 
   return (
-  <div>
-    <Line options={options} data={data} />
-    <Text/>
-    <button type="button" class="btn btn-outline-primary">Reset zoom</button>
-  </div>
+    <div>
+      <Line options={options} data={data} />
+      <Text/>
+      <button type="button" className="btn btn-outline-primary" onClick={handleResetZoom}>Reset zoom</button>
+    </div>
   );
 }

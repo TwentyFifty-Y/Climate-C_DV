@@ -48,8 +48,8 @@ export const options = {
   },
     zoom: {
       limits: {
-        y: {min: 0, max: 100},
-        x: {min: 0, max: 100}
+        y: {min: 0, max: 100, minRange: 1},
+        x: {min: 0, max: 100, minRange: 1}
       },
       zoom: {
         wheel: {
@@ -107,9 +107,8 @@ const Text = () => {
   );
 };
 
-export default function v1() {
+export default function V1() {
   return (
-
     <div>
       <Bar options={options} data={data} />
       <Text/>

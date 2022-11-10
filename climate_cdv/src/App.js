@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import Navbar from './pages/Navbar';
 import View1 from './pages/View1';
 import View2 from './pages/View2';
-
+import Custom from './pages/Custom';
 
 export function App() {
   return (
@@ -21,6 +21,7 @@ export function App() {
         <Routes>
           <Route path = "/view1" element = {<View1/>} />
           <Route path = "/view2" element = {<View2/>} />
+          <Route path = "/custom" element = {<Custom/>} />
         </Routes>
       </div>
     </>
