@@ -6,7 +6,7 @@ import v2 from "./v2";
 export default function View1() {
   return (
     <div className="container-view">
-        <h1>Table1</h1>
+        <h1 className="title">Atmospheric co2 and Emissions</h1>
         <div id="flex-container">
           <div className="flex-item">
             <span>{v1()}</span>
@@ -15,10 +15,10 @@ export default function View1() {
             <span>{v2()}</span>
           </div>
           <div className="flex-item">
-            <span>{v1()}</span>
+            <span>{v2()}</span>
           </div> 
           <div className="flex-item">
-            <span>{v2()}</span>
+            <span>{v1()}</span>
           </div>
         </div>
     </div>

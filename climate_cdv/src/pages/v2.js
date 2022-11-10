@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -34,7 +34,6 @@ export const options = {
           }
       }]
   },
-
   limits: {
     x: {min: -200, max: 200, minRange: 50},
     y: {min: -200, max: 200, minRange: 50}
@@ -68,11 +67,9 @@ export const options = {
         //   enabled: true,
         // },
         mode: 'xy',
-
       },
       pan: {
         enabled: true,
-
         mode: 'xy',
       }
     },
@@ -103,12 +100,23 @@ export const data = {
 //   chart.resetZoom()
 // }
 
+const Text = () => {
+  const [showText, setShowText] = useState(false);
+  return (
+    <React.Fragment>
+      {showText && <p className="info-text">Here we can write allllll the infos about the chart and what it means blablablalblalbalbla</p>}
+      <button className="btn btn-outline-primary btn-info" onClick={() => setShowText(!showText)}>Infos</button>
+    </React.Fragment>
+  );
+};
+
 export default function v2() {
 
   return (
   <div>
     <Line options={options} data={data} />
-    <button>Reset zoom</button>
+    <Text/>
+    <button type="button" class="btn btn-outline-primary">Reset zoom</button>
   </div>
   );
 }

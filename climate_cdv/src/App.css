@@ -1,5 +1,32 @@
+/* General */
+
 #root {
   --main-blue: rgba(0, 110, 144, 1);
+}
+
+.btn {
+  float: right;
+  margin-top: 15px;
+  font-size: 12px;
+  border-color: var(--main-blue);
+  color: var(--main-blue)
+}
+
+.btn-info {
+  float: left;
+  background-color: white
+}
+
+.btn:hover {
+  background-color: var(--main-blue);
+  border-color: var(--main-blue);
+}
+
+/* View */
+
+.title {
+  text-align: center;
+  margin: 20px 0px 55px 0px;
 }
 
 #flex-container {
@@ -9,16 +36,15 @@
   align-items: flex-start;
   justify-content: space-evenly;
   text-align: center;
-  gap: 10px;
-  margin: 10px 10px;
+  gap: 30px;
+  padding: 10px 10px;
+  margin-bottom: 100px;
 }
 
 #flex-container > div {
   flex-basis: 35%;
 }
 
-.flex-item {
-  /* flex-grow: 0.75; */
-  /* width: 700px;
-  height: 700px; */
+.info-text {
+  margin-top:20px
 }

@@ -12,12 +12,12 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <Link className="nav-link" to ="/view1">View 1 <span className="sr-only">(current)</span></Link>
-                </li>
-                {/* <li className="nav-item">
-                    <Link className="nav-link" to ="/activities">Activities</Link>
+                    <Link className="nav-link" to ="/view1">Atmospheric co2 and Emissions<span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item">
+                    <Link className="nav-link" to ="/view2">Emission sources</Link>
+                </li>
+                {/* <li className="nav-item">
                     <Link className="nav-link" to ="/about">About</Link>
                 </li> */}
             </ul>

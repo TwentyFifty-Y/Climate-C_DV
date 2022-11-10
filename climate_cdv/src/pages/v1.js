@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -31,7 +31,6 @@ export const options = {
           }
       }]
   },
-
   limits: {
     x: {min: -200, max: 200, minRange: 50},
     y: {min: -200, max: 200, minRange: 50}
@@ -40,12 +39,12 @@ export const options = {
     enabled: true,
     mode: 'xy',
   },
-    //legend: {
-    //  position: 'top' as const,
-    //},
+    // legend: {
+    //  position: 'top',
+    // },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
+      text: 'Name of the chart yaaasss',
   },
     zoom: {
       limits: {
@@ -65,11 +64,9 @@ export const options = {
         //   enabled: true,
         // },
         mode: 'xy',
-
       },
       pan: {
         enabled: true,
-
         mode: 'xy',
       }
     },
@@ -100,8 +97,23 @@ export const data = {
   ],
 };
 
+const Text = () => {
+  const [showText, setShowText] = useState(false);
+  return (
+    <React.Fragment>
+      {showText && <p className="info-text">Here we can write allllll the infos about the chart and what it means blablablalblalbalbla</p>}
+      <button className="btn btn-outline-primary btn-info" onClick={() => setShowText(!showText)}>Infos</button>
+    </React.Fragment>
+  );
+};
+
 export default function v1() {
   return (
-    <Bar options={options} data={data} />
+
+    <div>
+      <Bar options={options} data={data} />
+      <Text/>
+      <button type="button" className="btn btn-outline-primary">Reset zoom</button>
+    </div>
   );
 }
