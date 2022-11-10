@@ -5,10 +5,16 @@ import v2 from "./v2";
 
 export default function View1() {
   return (
-    <div>
+    <div className="container-view">
         <h1>Table1</h1>
-        <span>{v1()}</span> 
-        <span>{v2()}</span>
+        <div is="row">
+          <div className="column">
+            <span>{v1()}</span>
+          </div> 
+          <div className="column">
+            <span>{v2()}</span>
+            </div>
+        </div>
     </div>
 
   )

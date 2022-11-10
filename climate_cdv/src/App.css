@@ -1,3 +1,20 @@
 #root {
   --main-blue: rgba(0, 110, 144, 1);
 }
+
+#row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 10vh;
+  text-align: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* align-items: center; */
+  flex-basis: 750px;
+}

@@ -102,6 +102,6 @@ export const data = {
 
 export default function v1() {
   return (
-    <Bar className="co2country" options={options} data={data} />
+    <Bar options={options} data={data} />
   );
 }
