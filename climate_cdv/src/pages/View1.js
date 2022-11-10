@@ -1,6 +1,6 @@
 import React from 'react';
-import v1 from "./v1";
-import v2 from "./v2";
+import v1 from "./visualisations/v1";
+import v2 from "./visualisations/v2";
 
 
 export default function View1() {
