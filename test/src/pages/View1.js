@@ -1,0 +1,15 @@
+import React from 'react';
+import v1 from "./v1";
+import v2 from "./v2";
+
+
+export default function View1() {
+  return (
+    <div>
+        <h1>Table1</h1>
+        <span>{v1()}</span> 
+        <span>{v2()}</span>
+    </div>
+
+  )
+}

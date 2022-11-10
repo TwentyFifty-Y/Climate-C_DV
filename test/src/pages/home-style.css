@@ -1,0 +1,8 @@
+#root {
+    --main-blue: rgba(0, 110, 144, 1);
+}
+
+.home-container {
+    background-color: var(--main-blue);
+}
+  
