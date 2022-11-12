@@ -19,9 +19,9 @@ export function App() {
       </div> */}
       <div className="container2">
         <Routes>
-          <Route path = "/view1" element = {<View1/>} />
-          <Route path = "/view2" element = {<View2/>} />
-          <Route path = "/custom" element = {<Custom/>} />
+          <Route path = "view1" element = {<View1/>} />
+          <Route path = "view2" element = {<View2/>} />
+          <Route path = "custom" element = {<Custom/>} />
         </Routes>
       </div>
     </>
