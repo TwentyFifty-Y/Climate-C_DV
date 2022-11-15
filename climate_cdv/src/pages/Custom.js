@@ -3,7 +3,7 @@ import ElementMaker from "./ElementMaker";
 
 export default function Custom() {
     const [title, setTitle] = useState("My Title (double-click me)");
-    const [showInputEle, setShowInputEle] = useState(false); 
+    const [showInputEle, setShowInputEle] = useState(1); 
 
   return (
     <div>
@@ -12,7 +12,7 @@ export default function Custom() {
                 value={title}
                 handleChange={(e) => setTitle(e.target.value)}
                 handleDoubleClick={() => setShowInputEle(true)}
-                handleBlur={() => setShowInputEle(false)}
+                handleBlur={() => setShowInputEle(1)}
                 showInputEle={showInputEle}
             />
         </div>
