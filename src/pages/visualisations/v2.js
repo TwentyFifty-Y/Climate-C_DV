@@ -44,7 +44,7 @@ export default function V2() {
   const [fetchedInfo, setFetchedInfo] = useState([]);
 
     useEffect(() => {
-        axios.get("//localhost:3000/view1?id=view1GlobalMonthly").then((response) => {
+        axios.get("//localhost:3000/views?id=view1GlobalMonthly").then((response) => {
             setFetchedInfo(response.data);
         });
     }, [])
