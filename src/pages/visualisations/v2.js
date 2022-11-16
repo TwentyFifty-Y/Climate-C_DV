@@ -26,7 +26,6 @@ ChartJS.register(
   Legend
 );
 
-
 export default function V2() {
   
   // const Text = () => {

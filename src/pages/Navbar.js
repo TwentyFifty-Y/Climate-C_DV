@@ -12,6 +12,12 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
+                    <Link className="nav-link" to ="/login">Log in</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to ="/signup">Sign up</Link>
+                </li>
+                <li className="nav-item">
                     <Link className="nav-link" to ="/view1">Atmospheric CO<span id="sub">2</span> and Emissions<span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item">
@@ -20,6 +26,7 @@ export default function Navbar() {
                 <li className="nav-item">
                     <Link className="nav-link" to ="/custom">My views</Link>
                 </li>
+
             </ul>
         </div>
     </nav>
