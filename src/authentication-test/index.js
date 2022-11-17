@@ -3,6 +3,7 @@
 //Then head to Thunder Client (or browser) 
 //With GET localhost:3000 you see hello world
 //With GET localhost:3000/protected you get unauthorized until you 'sign in' in auth tab
+//Open the auth tab and choose basic and you should see the log in area
 //If in browser, a pop up sign in appears
 //You can acces the protected content by using the username and password in array if you want to check how it works
 
