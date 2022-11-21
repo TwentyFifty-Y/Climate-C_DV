@@ -13,7 +13,7 @@
 
 /* Buttons */
 
-.btn {
+.btn-visu {
   float: right;
   margin-top: 15px;
   font-size: 12px;
@@ -45,7 +45,19 @@
   margin: 30px 10px;
 }
 
-.btn-home-su {
+.btn-home-su, .btn-nav {
+  border-color: var(--main-orange);
+  background-color: white;
+  color: var(--main-orange);
+}
+
+.btn-nav1 {
+  margin-right: 20px;
+}
+
+.btn-logout {
+  float: left;
+  font-size: 13px;
   border-color: var(--main-orange);
   background-color: white;
   color: var(--main-orange);
@@ -57,17 +69,7 @@
   border-color: white!important;
 }
 
-.btn-slup:hover {
-  background-color: rgb(255, 153, 0)!important;
-  border-color: rgb(255, 153, 0)!important;
-}
-
-.btn-home-li:hover {
-  background-color: rgb(255, 153, 0)!important;
-  border-color: rgb(255, 153, 0)!important;
-}
-
-.btn-home-su:hover {
+.btn-slup:hover, .btn-home-li:hover, .btn-home-su:hover, .btn-nav:hover {
   background-color: rgb(255, 153, 0)!important;
   border-color: rgb(255, 153, 0)!important;
 }
@@ -77,7 +79,7 @@
   box-shadow: 0px 0px 8px var(--main-blue)!important;
 }
 
-.btn-slup:focus {
+.btn-slup:focus, .btn-logout:focus, .btn-nav:focus {
   border-color: var(--main-orange)!important;
   box-shadow: 0px 0px 8px var(--main-orange)!important;
 }
