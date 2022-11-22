@@ -20,7 +20,7 @@ export function App() {
 
   let authRoutes = <>
       <Route path="/login" element = { <Login login={(newJwt) => {
-        window.localStorage.setItem('appAuthData', newJwt)
+        window.localStorage.setItem('appAuthData', newJwt);
         setUserJwt(newJwt)
         }} /> }/>
       <Route path="/signup" element = { <Signup/> }/>
@@ -45,7 +45,6 @@ export function App() {
               <Route path = "/view2" element = {<View2/>} />
               <Route path = "/custom" element = {<Custom/>} />
               <Route path = "*" element = { <Profile /*userLoggedIn={userJwt != null}*//> }/>
-
             </Routes>
           </div>
         </>
