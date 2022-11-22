@@ -47,6 +47,7 @@ export default function V2() {
   const [northAnnualData, setNorthAnnualData] = useState([]);
   const [southAnnualData, setSouthAnnualData] = useState([]);
   const [southMonthlyData, setSouthMonthlyData] = useState([]);
+  const [v2Data, setV2Data] = useState([])
 
     useEffect(() => {
         axios.get("//localhost:3000/views?id=view1GlobalAnnual").then((response) => {
@@ -67,10 +68,13 @@ export default function V2() {
         axios.get("//localhost:3000/views?id=view1SouthMonthly").then((response) => {
             setSouthMonthlyData(response.data);
         });
+        axios.get("//localhost:3000/views?id=view2Main").then((response) => {
+            setV2Data(response.data);
+        });
     }, [])
 
 
-    const chartData = (array, array2, array3, array4, array5, array6) => {
+    const chartData = (array, array2, array3, array4, array5, array6, array7) => {
         return {
             datasets: [
                 {
@@ -83,6 +87,7 @@ export default function V2() {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
                       },
+                      pointRadius: 1,
                 },
 
                 {
@@ -95,6 +100,7 @@ export default function V2() {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
                       },
+                      pointRadius: 1,
                 },
                 {
                     label: "North Annual Anomaly",
@@ -106,9 +112,10 @@ export default function V2() {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
                       },
+                      pointRadius: 1,
                 },
                 {
-                    label: "Global Monthly Anomaly",
+                    label: "North Monthly Anomaly",
                     data: array4,
                     fill: false,
                     backgroundColor: "rgb(120, 10, 112)",
@@ -117,9 +124,10 @@ export default function V2() {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
                       },
+                      pointRadius: 1,
                 },
                 {
-                    label: "Global Monthly Anomaly",
+                    label: "South Monthly Anomaly",
                     data: array5,
                     fill: false,
                     backgroundColor: "rgb(120, 10, 112)",
@@ -128,17 +136,31 @@ export default function V2() {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
                       },
+                      pointRadius: 1,
                 },
                 {
-                    label: "Global Monthly Anomaly",
+                    label: "South Monthly Anomaly",
                     data: array6,
                     fill: false,
-                    backgroundColor: "rgb(120, 10, 112)",
+                    backgroundColor: "rgb(200, 100, 70)",
                     borderColor: "rgba(150, 90, 250, 0.7)",
                     parsing: {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
                       },
+                      pointRadius: 1,
+                },
+                {
+                    label: "Northern Hemisphere 2,000-year temperature reconstruction",
+                    data: array7,
+                    fill: false,
+                    backgroundColor: "rgb(120, 10, 112)",
+                    borderColor: "rgba(70, 100, 50, 0.7)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "anomaly",
+                      },
+                      pointRadius: 1,
                 },
             ],
         };
@@ -171,7 +193,7 @@ export default function V2() {
     return (
         <div style={{ width: "1000px" }}>
             <h1>TimeLineGraphDemo</h1>
-            <Line options={options} data={chartData(globalAnnualData, globalMonthlyData, northAnnualData, northMonthlyData, southAnnualData, southMonthlyData)} />
+            <Line options={options} data={chartData(globalAnnualData, globalMonthlyData, northAnnualData, northMonthlyData, southAnnualData, southMonthlyData, v2Data)} />
             </div>
     );
 
