@@ -41,27 +41,104 @@ export default function V2() {
     
   // };
 
-  const [fetchedInfo, setFetchedInfo] = useState([]);
+  const [globalAnnualData, setGlobalAnnualData] = useState([]);
+  const [globalMonthlyData, setGlobalMonthlyData] = useState([]);
+  const [northMonthlyData, setNorthMonthlyData] = useState([]);
+  const [northAnnualData, setNorthAnnualData] = useState([]);
+  const [southAnnualData, setSouthAnnualData] = useState([]);
+  const [southMonthlyData, setSouthMonthlyData] = useState([]);
 
     useEffect(() => {
+        axios.get("//localhost:3000/views?id=view1GlobalAnnual").then((response) => {
+            setGlobalAnnualData(response.data);
+        });
         axios.get("//localhost:3000/views?id=view1GlobalMonthly").then((response) => {
-            setFetchedInfo(response.data);
+            setGlobalMonthlyData(response.data);
+        });
+        axios.get("//localhost:3000/views?id=view1NorthAnnual").then((response) => {
+            setNorthAnnualData(response.data);
+        });
+        axios.get("//localhost:3000/views?id=view1NorthMonthly").then((response) => {
+            setNorthMonthlyData(response.data);
+        });
+        axios.get("//localhost:3000/views?id=view1SouthAnnual").then((response) => {
+            setSouthAnnualData(response.data);
+        });
+        axios.get("//localhost:3000/views?id=view1SouthMonthly").then((response) => {
+            setSouthMonthlyData(response.data);
         });
     }, [])
 
 
-    const chartData = (array) => {
-        const labels = array.map(item => item.time);
-        const data = array.map(item => item.anomaly);
+    const chartData = (array, array2, array3, array4, array5, array6) => {
         return {
-            labels: labels,
             datasets: [
                 {
-                    label: "Global Monthly Anomaly",
-                    data: data,
+                    label: "Global Annual Anomaly",
+                    data: array,
                     fill: false,
                     backgroundColor: "rgb(255, 99, 132)",
                     borderColor: "rgba(255, 99, 132, 0.2)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "anomaly",
+                      },
+                },
+
+                {
+                    label: "Global Monthly Anomaly",
+                    data: array2,
+                    fill: false,
+                    backgroundColor: "rgb(120, 10, 112)",
+                    borderColor: "rgba(120, 10, 112, 0.3)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "anomaly",
+                      },
+                },
+                {
+                    label: "North Annual Anomaly",
+                    data: array3,
+                    fill: false,
+                    backgroundColor: "rgb(120, 10, 112)",
+                    borderColor: "rgba(20, 20, 212, 0.9)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "anomaly",
+                      },
+                },
+                {
+                    label: "Global Monthly Anomaly",
+                    data: array4,
+                    fill: false,
+                    backgroundColor: "rgb(120, 10, 112)",
+                    borderColor: "rgba(250, 5, 172, 0.4)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "anomaly",
+                      },
+                },
+                {
+                    label: "Global Monthly Anomaly",
+                    data: array5,
+                    fill: false,
+                    backgroundColor: "rgb(120, 10, 112)",
+                    borderColor: "rgba(184, 32, 320, 0.5)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "anomaly",
+                      },
+                },
+                {
+                    label: "Global Monthly Anomaly",
+                    data: array6,
+                    fill: false,
+                    backgroundColor: "rgb(120, 10, 112)",
+                    borderColor: "rgba(150, 90, 250, 0.7)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "anomaly",
+                      },
                 },
             ],
         };
@@ -94,8 +171,8 @@ export default function V2() {
     return (
         <div style={{ width: "1000px" }}>
             <h1>TimeLineGraphDemo</h1>
-            <Line options={options} data={chartData(fetchedInfo)} />
-        </div>
+            <Line options={options} data={chartData(globalAnnualData, globalMonthlyData, northAnnualData, northMonthlyData, southAnnualData, southMonthlyData)} />
+            </div>
     );
 
 }
