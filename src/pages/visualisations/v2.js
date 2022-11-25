@@ -35,7 +35,12 @@ export default function V2() {
                 <button className="btn btn-outline-primary btn-info" onClick={() => setShowText(!showText)}>Infos</button>
                 <br />
                 {showText &&
-                    <p className="info-text">Here we can write allllll the infos about the chart and what it means blablablalblalbalbla</p>}
+                    <div>
+                        <p className="info-text">Graph that displays historical surface temperature anomalies relative to a 1961-1990 reference period globally and by hemisphere, also with monthly an annual data. Data provided from <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/">HadCRUT5</a></p>
+                        <p className="info-text">It also displays Northern Hemisphere temperature reconstruction for the past 2,000. Data provided by <a href="https://bolin.su.se/data/moberg-2012-nh-1?n=moberg-2005">Bolin Centre for Climate Research</a></p>
+                    </div>
+                }
+
             </React.Fragment>
         );
     };
