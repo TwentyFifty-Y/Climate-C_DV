@@ -53,26 +53,28 @@ export default function V2() {
     const [southMonthlyData, setSouthMonthlyData] = useState([]);
     const [v2Data, setV2Data] = useState([])
 
+    const LINK = "//localhost:3000";
+
     useEffect(() => {
-        axios.get("//localhost:3000/views?id=view1GlobalAnnual").then((response) => {
+        axios.get(LINK + "/views?id=view1GlobalAnnual").then((response) => {
             setGlobalAnnualData(response.data);
         });
-        axios.get("//localhost:3000/views?id=view1GlobalMonthly").then((response) => {
+        axios.get(LINK + "/views?id=view1GlobalMonthly").then((response) => {
             setGlobalMonthlyData(response.data);
         });
-        axios.get("//localhost:3000/views?id=view1NorthAnnual").then((response) => {
+        axios.get(LINK + "/views?id=view1NorthAnnual").then((response) => {
             setNorthAnnualData(response.data);
         });
-        axios.get("//localhost:3000/views?id=view1NorthMonthly").then((response) => {
+        axios.get(LINK + "/views?id=view1NorthMonthly").then((response) => {
             setNorthMonthlyData(response.data);
         });
-        axios.get("//localhost:3000/views?id=view1SouthAnnual").then((response) => {
+        axios.get(LINK + "/views?id=view1SouthAnnual").then((response) => {
             setSouthAnnualData(response.data);
         });
-        axios.get("//localhost:3000/views?id=view1SouthMonthly").then((response) => {
+        axios.get(LINK + "/views?id=view1SouthMonthly").then((response) => {
             setSouthMonthlyData(response.data);
         });
-        axios.get("//localhost:3000/views?id=view2Main").then((response) => {
+        axios.get(LINK + "/views?id=view2Main").then((response) => {
             setV2Data(response.data.map(item => {
                 return {
                     time: item.time.padStart(4, "0"),
