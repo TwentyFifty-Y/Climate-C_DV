@@ -85,12 +85,12 @@ export default function V2() {
     }, [])
 
 
-    const chartData = (array, array2, array3, array4, array5, array6, array7) => {
+    const chartData = (globalAnnualData, globalMonthlyData, northAnnualData, northMonthlyData, southAnnualData, southMonthlyData, view2Data) => {
         return {
             datasets: [
                 {
                     label: "Global Annual Anomaly",
-                    data: array,
+                    data: globalAnnualData,
                     fill: false,
                     backgroundColor: "rgb(255, 99, 132)",
                     borderColor: "rgba(255, 99, 132, 0.2)",
@@ -103,7 +103,7 @@ export default function V2() {
 
                 {
                     label: "Global Monthly Anomaly",
-                    data: array2,
+                    data: globalMonthlyData,
                     fill: false,
                     backgroundColor: "rgb(120, 10, 112)",
                     borderColor: "rgba(120, 10, 112, 0.3)",
@@ -115,7 +115,7 @@ export default function V2() {
                 },
                 {
                     label: "North Annual Anomaly",
-                    data: array3,
+                    data: northAnnualData,
                     fill: false,
                     backgroundColor: "rgb(120, 10, 112)",
                     borderColor: "rgba(20, 20, 212, 0.9)",
@@ -127,7 +127,7 @@ export default function V2() {
                 },
                 {
                     label: "North Monthly Anomaly",
-                    data: array4,
+                    data: northMonthlyData,
                     fill: false,
                     backgroundColor: "rgb(120, 10, 112)",
                     borderColor: "rgba(250, 5, 172, 0.4)",
@@ -139,7 +139,7 @@ export default function V2() {
                 },
                 {
                     label: "South Annual Anomaly",
-                    data: array5,
+                    data: southAnnualData,
                     fill: false,
                     backgroundColor: "rgb(120, 10, 112)",
                     borderColor: "rgba(184, 32, 320, 0.5)",
@@ -151,7 +151,7 @@ export default function V2() {
                 },
                 {
                     label: "South Monthly Anomaly",
-                    data: array6,
+                    data: southMonthlyData,
                     fill: false,
                     backgroundColor: "rgb(200, 100, 70)",
                     borderColor: "rgba(150, 90, 250, 0.7)",
@@ -163,7 +163,7 @@ export default function V2() {
                 },
                 {
                     label: "Northern Hemisphere 2,000-year temperature reconstruction",
-                    data: array7,
+                    data: view2Data,
                     fill: false,
                     backgroundColor: "rgb(120, 10, 112)",
                     borderColor: "rgba(70, 100, 50, 0.7)",
