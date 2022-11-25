@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+// import {
+//   Chart as ChartJS,
+//   CategoryScale,
+//   LinearScale,
+//   PointElement,
+//   LineElement,
+//   Title,
+//   Tooltip,
+//   Legend,
+// } from 'chart.js';
 import { Chart } from "chart.js/auto";
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
@@ -16,15 +16,15 @@ import 'chartjs-adapter-luxon';
 
 // import { resetZoom } from 'chartjs-plugin-zoom';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+// ChartJS.register(
+//   CategoryScale,
+//   LinearScale,
+//   PointElement,
+//   LineElement,
+//   Title,
+//   Tooltip,
+//   Legend
+// );
 
 export default function V2() {
   
@@ -69,7 +69,12 @@ export default function V2() {
             setSouthMonthlyData(response.data);
         });
         axios.get("//localhost:3000/views?id=view2Main").then((response) => {
-            setV2Data(response.data);
+            setV2Data(response.data.map(item => {
+                return {
+                    time: item.time.padStart(4, "0"),
+                    anomaly: item.anomaly
+                }
+            }));
         });
     }, [])
 
