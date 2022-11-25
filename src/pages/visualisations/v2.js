@@ -27,16 +27,18 @@ import 'chartjs-adapter-luxon';
 // );
 
 export default function V2() {
-  
-  // const Text = () => {
-  //   const [showText, setShowText] = useState(false);
-  //   return (
-  //     <React.Fragment>
-  //       {showText && <p className="info-text">Here we can write allllll the infos about the chart and what it means blablablalblalbalbla</p>}
-  //       <button className="btn btn-outline-primary btn-info" onClick={() => setShowText(!showText)}>Infos</button>
-  //     </React.Fragment>
-  //   );
 
+    const Text = () => {
+        const [showText, setShowText] = useState(false);
+        return (
+            <React.Fragment>
+                <button className="btn btn-outline-primary btn-info" onClick={() => setShowText(!showText)}>Infos</button>
+                <br />
+                {showText &&
+                    <p className="info-text">Here we can write allllll the infos about the chart and what it means blablablalblalbalbla</p>}
+            </React.Fragment>
+        );
+    };
 
     
   // };
@@ -199,7 +201,8 @@ export default function V2() {
         <div style={{ width: "1000px" }}>
             <h1>TimeLineGraphDemo</h1>
             <Line options={options} data={chartData(globalAnnualData, globalMonthlyData, northAnnualData, northMonthlyData, southAnnualData, southMonthlyData, v2Data)} />
-            </div>
+            <Text />
+        </div>
     );
 
 }
