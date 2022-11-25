@@ -189,7 +189,7 @@ export default function V2() {
             xAxis: {
                 type: "time",
                 time: {
-                    unit: "month",
+                    unit: "year",
                 },
             },
             yAxis: {
