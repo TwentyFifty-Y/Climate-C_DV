@@ -1,6 +1,6 @@
 import React from 'react';
-import v1 from "./visualisations/v1";
 import v2 from "./visualisations/v2";
+import v3 from "./visualisations/v3";
 
 export default function View1() {
   return (
@@ -9,6 +9,9 @@ export default function View1() {
       <div id="flex-container">
         <div className="flex-item">
           <span>{v2()}</span>
+        </div>
+        <div className="flex-item">
+          <span>{v3()}</span>
         </div>
       </div>
     </div>
