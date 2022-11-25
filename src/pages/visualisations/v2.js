@@ -40,16 +40,13 @@ export default function V2() {
         );
     };
 
-    
-  // };
-
-  const [globalAnnualData, setGlobalAnnualData] = useState([]);
-  const [globalMonthlyData, setGlobalMonthlyData] = useState([]);
-  const [northMonthlyData, setNorthMonthlyData] = useState([]);
-  const [northAnnualData, setNorthAnnualData] = useState([]);
-  const [southAnnualData, setSouthAnnualData] = useState([]);
-  const [southMonthlyData, setSouthMonthlyData] = useState([]);
-  const [v2Data, setV2Data] = useState([])
+    const [globalAnnualData, setGlobalAnnualData] = useState([]);
+    const [globalMonthlyData, setGlobalMonthlyData] = useState([]);
+    const [northMonthlyData, setNorthMonthlyData] = useState([]);
+    const [northAnnualData, setNorthAnnualData] = useState([]);
+    const [southAnnualData, setSouthAnnualData] = useState([]);
+    const [southMonthlyData, setSouthMonthlyData] = useState([]);
+    const [v2Data, setV2Data] = useState([])
 
     useEffect(() => {
         axios.get("//localhost:3000/views?id=view1GlobalAnnual").then((response) => {
@@ -93,8 +90,8 @@ export default function V2() {
                     parsing: {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
-                      },
-                      pointRadius: 1,
+                    },
+                    pointRadius: 1,
                 },
 
                 {
@@ -106,8 +103,8 @@ export default function V2() {
                     parsing: {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
-                      },
-                      pointRadius: 1,
+                    },
+                    pointRadius: 1,
                 },
                 {
                     label: "North Annual Anomaly",
@@ -118,8 +115,8 @@ export default function V2() {
                     parsing: {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
-                      },
-                      pointRadius: 1,
+                    },
+                    pointRadius: 1,
                 },
                 {
                     label: "North Monthly Anomaly",
@@ -130,8 +127,8 @@ export default function V2() {
                     parsing: {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
-                      },
-                      pointRadius: 1,
+                    },
+                    pointRadius: 1,
                 },
                 {
                     label: "South Annual Anomaly",
@@ -142,8 +139,8 @@ export default function V2() {
                     parsing: {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
-                      },
-                      pointRadius: 1,
+                    },
+                    pointRadius: 1,
                 },
                 {
                     label: "South Monthly Anomaly",
@@ -154,8 +151,8 @@ export default function V2() {
                     parsing: {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
-                      },
-                      pointRadius: 1,
+                    },
+                    pointRadius: 1,
                 },
                 {
                     label: "Northern Hemisphere 2,000-year temperature reconstruction",
@@ -166,8 +163,8 @@ export default function V2() {
                     parsing: {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
-                      },
-                      pointRadius: 1,
+                    },
+                    pointRadius: 1,
                 },
             ],
         };
