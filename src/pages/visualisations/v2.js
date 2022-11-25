@@ -99,6 +99,7 @@ export default function V2() {
                         yAxisKey: "anomaly",
                     },
                     pointRadius: 0,
+                    borderWidth: 2,
                 },
 
                 {
@@ -112,6 +113,7 @@ export default function V2() {
                         yAxisKey: "anomaly",
                     },
                     pointRadius: 0,
+                    borderWidth: 1,
                 },
                 {
                     label: "North Annual Anomaly",
@@ -124,6 +126,7 @@ export default function V2() {
                         yAxisKey: "anomaly",
                     },
                     pointRadius: 0,
+                    borderWidth: 2,
                 },
                 {
                     label: "North Monthly Anomaly",
@@ -136,6 +139,7 @@ export default function V2() {
                         yAxisKey: "anomaly",
                     },
                     pointRadius: 0,
+                    borderWidth: 1,
                 },
                 {
                     label: "South Annual Anomaly",
@@ -148,6 +152,7 @@ export default function V2() {
                         yAxisKey: "anomaly",
                     },
                     pointRadius: 0,
+                    borderWidth: 2,
                 },
                 {
                     label: "South Monthly Anomaly",
@@ -160,6 +165,7 @@ export default function V2() {
                         yAxisKey: "anomaly",
                     },
                     pointRadius: 0,
+                    borderWidth: 1,
                 },
                 {
                     label: "Northern Hemisphere 2,000-year temperature reconstruction",
@@ -172,6 +178,7 @@ export default function V2() {
                         yAxisKey: "anomaly",
                     },
                     pointRadius: 0,
+                    borderWidth: 1,
                 },
             ],
         };
