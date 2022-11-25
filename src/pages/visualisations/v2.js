@@ -174,6 +174,7 @@ export default function V2() {
     }
 
     const options = {
+        animation: false,
         responsive: true,
         plugins: {
             legend: {
