@@ -134,7 +134,7 @@ export default function V2() {
                       pointRadius: 1,
                 },
                 {
-                    label: "South Monthly Anomaly",
+                    label: "South Annual Anomaly",
                     data: array5,
                     fill: false,
                     backgroundColor: "rgb(120, 10, 112)",
