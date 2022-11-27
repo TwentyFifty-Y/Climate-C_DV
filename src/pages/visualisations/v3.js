@@ -25,8 +25,34 @@ export default function V3() {
 
     const [maunaLoaAnnualData, setMaunaLoaAnnualData] = useState([]);
     const [maunaLoaMonthly, setMaunaLoaMonthly] = useState([]);
+    const [v4SampleOne, setV4SampleOne] = useState([]);
+    const [v4SampleTwo, setV4SampleTwo] = useState([]);
+    const [v4SampleThree, setV4SampleThree] = useState([]);
 
     const LINK = "//localhost:3000";
+
+    // function view4Handler(array) {
+    //     let data = array.map((item) => {
+    //         const yearRaw = Math.abs(1950 - Number(item.airAgeYear));
+    //         console.log(typeof yearRaw);
+    //         const year = "-" + Number(yearRaw).padStart(6, "0");
+    //         return {
+    //             time: year,
+    //             mean: item.co2ppm
+    //         }
+    //     })
+    //     return data;
+    // }
+
+    function view4Handler(array) {
+        let data = array.map((item) => {
+            return {
+                time: item.airAgeYear,
+                mean: item.co2ppm
+            }
+        });
+        return data;
+    }
 
     useEffect(() => {
         axios.get(LINK + "/views?id=view3Annual").then((response) => {
@@ -41,13 +67,23 @@ export default function V3() {
                 }
             }));
         });
+        axios.get(LINK + "/views?id=view4SampleOne").then((response) => {
+            setV4SampleOne(view4Handler(response.data));
+        });
+        axios.get(LINK + "/views?id=view4SampleTwo").then((response) => {
+            setV4SampleTwo(view4Handler(response.data));
+        });
+        axios.get(LINK + "/views?id=view4SampleThree").then((response) => {
+            setV4SampleThree(view4Handler(response.data));
+        });
+
     }, [])
 
-    const chartData = (view3Annual, view3Monthly) => {
+    const chartData = (view3Annual, view3Monthly, view4SampleOne, view4SampleTwo, view4SampleThree) => {
         return {
             datasets: [
                 {
-                    label: "Mauna Loa Annual Atmospheric CO2 Concentration", 
+                    label: "Mauna Loa Annual Atmospheric CO2 Concentration",
                     data: view3Annual,
                     fill: false,
                     backgroundColor: "rgb(55, 87, 62)",
@@ -57,14 +93,50 @@ export default function V3() {
                         yAxisKey: "mean",
                     },
                     pointRadius: 0,
-                    
+
                 },
                 {
-                    label: "Mauna Loa Monthly Atmospheric CO2 Concentration", 
+                    label: "Mauna Loa Monthly Atmospheric CO2 Concentration",
                     data: view3Monthly,
                     fill: false,
                     backgroundColor: "rgb(141, 233, 105)",
                     borderColor: "rgb(141, 233, 105)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "mean",
+                    },
+                    pointRadius: 0,
+                },
+                {
+                    label: "Ice Core Sample 1",
+                    data: view4SampleOne,
+                    fill: false,
+                    backgroundColor: "rgb(132, 169, 192)",
+                    borderColor: "rgb(132, 169, 192)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "mean",
+                    },
+                    pointRadius: 0,
+                },
+                {
+                    label: "Ice Core Sample 2",
+                    data: view4SampleTwo,
+                    fill: false,
+                    backgroundColor: "rgb(106, 102, 163)",
+                    borderColor: "rgb(106, 102, 163)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "mean",
+                    },
+                    pointRadius: 0,
+                },
+                {
+                    label: "Ice Core Sample 3",
+                    data: view4SampleThree,
+                    fill: false,
+                    backgroundColor: "rgb(84, 46, 113)",
+                    borderColor: "rgb(84, 46, 113)",
                     parsing: {
                         xAxisKey: "time",
                         yAxisKey: "mean",
@@ -91,7 +163,7 @@ export default function V3() {
             xAxis: {
                 type: "time",
                 time: {
-                    unit: "year",
+                    unit: "month",
                 },
             },
             yAxis: {
@@ -102,7 +174,7 @@ export default function V3() {
 
     return (
         <div style={{ width: "1000px" }}>
-            <Line data={chartData(maunaLoaAnnualData, maunaLoaMonthly)} options={options} />
+            <Line data={chartData(maunaLoaAnnualData, maunaLoaMonthly, v4SampleOne, v4SampleTwo, v4SampleThree)} options={options} />
             <Text />
         </div>
     );
