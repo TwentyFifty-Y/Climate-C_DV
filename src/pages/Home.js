@@ -2,21 +2,41 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
+
 export default function Home() {
   return (
     <div className="home-container">
       {/* <span> User login status: { props.userLoggedIn ? "is logged in" : "is not logged in" }</span> */}
       <h1>Choose a ready-made view <br/> or create a custom one</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Accumsan sit amet nulla facilisi. 
-        Feugiat sed lectus vestibulum mattis ullamcorper velit. Diam vulputate ut pharetra 
-        sit amet aliquam id diam. Odio pellentesque diam volutpat commodo sed egestas. 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan sit amet nulla facilisi. Feugiat sed lectus vestibulum mattis ullamcorper velit. Diam vulputate ut pharetra sit amet aliquam id diam. Odio pellentesque diam volutpat commodo sed egestas. In mollis nunc sed id semper risus.
-        In mollis nunc sed id semper risus.</p>
+    
+      <h2>In this site you can see information of climate change in several charts.</h2>
         <div>
               <Link to ="/login" type="button" className="btn btn-outline-primary btn-home btn-home-li btn-lg">Login</Link>
               <Link to ="/signup" type="button" className="btn btn-outline-primary btn-home btn-home-su btn-lg">Sign up</Link>         
         </div>
+      <img src="https://cdn.pixabay.com/photo/2016/10/20/18/35/earth-1756274__480.jpg"/>
+      
+      <h2>Little bit of basic information about climate change</h2>
+      <br/>
+      <p>Climate change refers to long-term shifts in temperatures and weather 
+        patterns. These shifts may be natural, such as through variations in the solar 
+        cycle. But since the 1800s, human activities have been the main driver of climate change, 
+        primarily due to burning fossil fuels like coal, oil and gas.
+        <br/>
+        <br/>
+        Burning fossil fuels generates greenhouse gas emissions that act like a blanket 
+        wrapped around the Earth, trapping the sun’s heat and raising temperatures.
+        <br/>
+        <br/>
+        Examples of greenhouse gas emissions that are causing climate change include 
+        carbon dioxide and methane. These come from using gasoline for driving a car 
+        or coal for heating a building, for example. Clearing land and forests can also 
+        release carbon dioxide. Landfills for garbage are a major source of methane emissions. 
+        Energy, industry, transport, buildings, agriculture and land use are among the main emitters.</p>
+        <a href="https://www.un.org/en/climatechange/what-is-climate-change">Read more here!</a>
+        <br/>
+        <h2>We can pay the bill now, or pay dearly in the future</h2>
+        
         {/* <div>
           { props.userLoggedIn ?
               <Link to = "/view1">Go to protected view</Link>

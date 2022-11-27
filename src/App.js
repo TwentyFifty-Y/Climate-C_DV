@@ -28,11 +28,18 @@ export function App() {
 
     if(userJwt != null) {
       authRoutes = 
-        <Route path="/profile" element = { <Profile userJwt={userJwt} logout={() => {
-        setUserJwt(null)
-        window.localStorage.removeItem('appAuthData');
-      }} /> }/>
+      <Route path="/profile" element={ <Profile userJwt={ userJwt } logout={() => setUserJwt(null)}/> }/>
     }
+
+
+    // if(userJwt != null) {
+      
+    //   authRoutes = 
+    //     <Route path="/profile" element = { <Profile userJwt={userJwt} logout={() => {
+    //     setUserJwt(null)
+    //     window.localStorage.removeItem('appAuthData');
+    //   }} /> }/>
+    // }
 
   return (
     <div> { userJwt != null ?

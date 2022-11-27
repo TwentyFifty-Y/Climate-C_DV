@@ -11,9 +11,7 @@ export default function Signup() {
 
   const handleSignupSubmit = async (event) => {
     event.preventDefault();
-    // console.log(event.target.username.value);
-    // console.log(event.target.email.value);
-    // console.log(event.target.password.value);
+    
     
     try {
       const result = await axios.post(Constants.API_ADDRESS_SIGNUP + '/register',
@@ -42,11 +40,11 @@ export default function Signup() {
             <label for="floatingInput">Username</label>
           </div>
           <div className="form-floating mb-3">
-            <input /*type="email"*/ className="form-control" id="floatingInput" placeholder="Email" name="email"/>
+            <input type="email" className="form-control" id="floatingInput" placeholder="Email" name="email"/>
             <label for="floatingInput">Email</label>
           </div>
           <div className="form-floating mb-3">
-            <input /*type="email"*/ className="form-control" id="floatingInput" placeholder="Password" name="password"/>
+            <input type="password" className="form-control" id="floatingInput" placeholder="Password" name="password"/>
             <label for="floatingInput">Password</label>
           </div>
           <div className="btn-form-element">
