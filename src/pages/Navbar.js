@@ -20,11 +20,11 @@ export default function Navbar(props) {
             <Link class="nav-link" to="/custom">My views</Link>
             </li>
         </ul>
-        <form class="d-flex" role="search">
-            {/* <Link class="btn btn-outline-success btn-nav" to="/" type="submit" onClick={ props.logout }>Logout</Link> */}
+        {/* <form class="d-flex" role="search">
+            {/* <Link class="btn btn-outline-success btn-nav" to="/" type="submit" onClick={ props.logout }>Logout</Link> }
             <button class="btn btn-outline-success btn-nav" onClick={ props.logout }>Logout</button>
 
-        </form>
+        </form> */}
         </div>
     </div>
     </nav>
