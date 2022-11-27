@@ -10,7 +10,7 @@ export default function Login(props) {
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
     try {
-      const result = await axios.post(Constants.API_ADDRESS_LOGIN + '/jwtLogin', null, {
+      const result = await axios.post(Constants.API_ADDRESS + '/jwtLogin', null, {
           auth: {
             username: event.target.username.value,
             password: event.target.password.value,

@@ -1,4 +1,3 @@
 {
-    "API_ADDRESS_SIGNUP": "http://localhost:3000",
-    "API_ADDRESS_LOGIN": "http://localhost:3000"
+    "API_ADDRESS": "http://localhost:3000"
 }

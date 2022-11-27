@@ -14,7 +14,7 @@ export default function Signup() {
     
     
     try {
-      const result = await axios.post(Constants.API_ADDRESS_SIGNUP + '/register',
+      const result = await axios.post(Constants.API_ADDRESS + '/register',
       {
         username:event.target.username.value,
         email:event.target.email.value,
