@@ -11,9 +11,7 @@ export default function Signup() {
 
   const handleSignupSubmit = async (event) => {
     event.preventDefault();
-    // console.log(event.target.username.value);
-    // console.log(event.target.email.value);
-    // console.log(event.target.password.value);
+    
     
     try {
       const result = await axios.post(Constants.API_ADDRESS_SIGNUP + '/register',
