@@ -19,7 +19,7 @@ export default function V5() {
     function view5Handler(array) {
         let data = array.map((item) => {
             const year = addLeadingZeros((1950 - item.airAgeYearBeforePresent), 6)
-            const yearAndMonth = year + "-01-01"
+            const yearAndMonth = year
             return {
                 time: yearAndMonth,
                 mean: item.co2ppm
@@ -29,7 +29,7 @@ export default function V5() {
     }
 
     const Text = () => {
-        const [showText, setShowText] = useState(false);
+        const [showText, setShowText] = useState();
         return (
             <React.Fragment>
                 <button className="btn btn-outline-primary btn-info" onClick={() => setShowText(!showText)}>Infos</button>
@@ -89,14 +89,13 @@ export default function V5() {
         },
         scales: {
             xAxis: {
-                type: "time",
+                reverse: true,
+                // type: "time",
                 time: {
                     unit: "year",
+                    stepSize: 100,
                 },
-                // ticks: {
-                //     suggestedMax: 2022,
-                //     suggestedMin: -450000
-                // }
+                
             },
             yAxis: {
                 type: "linear",
