@@ -34,11 +34,11 @@ export default function Login(props) {
       <div className="slup-form">
         <form onSubmit={ handleLoginSubmit }>
           <div className="form-floating mb-3">
-            <input /*type="email"*/ className="form-control" id="floatingInput" placeholder="Email" name="username"/>
+            <input className="form-control" id="floatingInput" placeholder="Email" name="username"/>
             <label for="floatingInput">Username</label>
           </div>
           <div className="form-floating mb-3">
-            <input /*type="email"*/ className="form-control" id="floatingInput" placeholder="Password" name="password"/>
+            <input type="password" className="form-control" id="floatingInput" placeholder="Password" name="password"/>
             <label for="floatingInput">Password</label>
           </div>
           <div className="btn-form-element">
