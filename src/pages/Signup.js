@@ -3,6 +3,8 @@ import axios from 'axios'
 import Constants from './Constants.json'
 import { useNavigate } from 'react-router-dom'
 
+
+
 export default function Signup() {
 
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ export default function Signup() {
     // console.log(event.target.username.value);
     // console.log(event.target.email.value);
     // console.log(event.target.password.value);
-
+    
     try {
       const result = await axios.post(Constants.API_ADDRESS + '/register',
       {
