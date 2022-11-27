@@ -16,7 +16,7 @@ export default function Signup() {
     // console.log(event.target.password.value);
     
     try {
-      const result = await axios.post(Constants.API_ADDRESS + '/register',
+      const result = await axios.post(Constants.API_ADDRESS_SIGNUP + '/register',
       {
         username:event.target.username.value,
         email:event.target.email.value,
