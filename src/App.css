@@ -2,13 +2,15 @@
 
 :root {
   --main-blue: rgba(0, 110, 144, 1);
+  --main-gray: rgba(229, 229, 229, 1);
+  
   --main-orange: rgba(241, 143, 1, 1);
-  background-color: var(--main-blue)
+  background-color: var(--main-gray)
 
 }
 
 :root.signup {
-  background-color: var(--main-blue);
+  background-color: var(--main-gray);
 }
 
 /* Buttons */
@@ -23,7 +25,8 @@
 
 .btn-info {
   float: left;
-  background-color: white
+  background-color: white;
+  color: var(--main-blue);
 }
 
 .btn-slup {
@@ -87,10 +90,11 @@
 /* Home */
 
 .home-container {
-  background-color: var(--main-blue);
-  color: white;
+  background-color: var(--main-gray);
+  /* color: var(--main-blue); */
   text-align: center;
-  position: relative
+  position: relative;
+  margin-bottom: 100px;
 }
 
 .home-container h1 {
@@ -104,19 +108,28 @@
   margin-left: 24.5%;
 }
 
+.home-container .ext-link {
+  color: var(--main-orange);
+}
+
+.home-container img {
+  border-radius: 10px;
+}
+
 /* Navbar */
 
 /* Signup and Login */
 
 .slup-container {
-  background-color: var(--main-blue);
+  background-color: var(--main-gray);
+  margin-bottom: 200px;
 }
 
 .slup-container h1 {
   padding: 70px;
   font-size: 50px;
   font-weight: bold;
-  color:white;
+  /* color:white; */
   text-align: center;
 }
 
@@ -148,10 +161,21 @@
   transform: translate(-50%, -50%);
 }
 
+/* Profile */
+
+.profile-container {
+  background-color: var(--main-gray);
+}
+
+.profile-container .table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
 /* View */
 
 .title {
-  color: white;
   text-align: center;
   padding: 30px 0px 55px 0px;
 }
@@ -161,7 +185,7 @@
 }
 
 .container-view {
- background-color: var(--main-blue);
+ background-color: var(--main-gray);
  padding-bottom: 100px;
 }
 
@@ -188,7 +212,14 @@
   margin-top:20px
 }
 
-/*photo on mainpage */
+/* Custom view */
+
+.custom-container {
+  background-color: var(--main-gray);
+  padding-bottom: 100px;
+}
+
+/* Photo on mainpage */
 img {
   margin-bottom: 50px;
 }

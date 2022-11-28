@@ -7,9 +7,9 @@ export default function View2() {
     <div className="container-view">
       <h1 className="title">Emission sources</h1>
       <div id="flex-container">
-        <div className="flex-item">
+        {/* <div className="flex-item">
           <span>{v1()}</span>
-        </div> 
+        </div>  */}
         <div className="flex-item">
           <span>{v2()}</span>
         </div>

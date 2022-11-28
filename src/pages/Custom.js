@@ -6,7 +6,7 @@ export default function Custom() {
     const [showInputEle, setShowInputEle] = useState(false); 
 
   return (
-    <div>
+    <div className="custom-container">
         <div className="title">
             <ElementMaker
                 value={title}
