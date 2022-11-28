@@ -26,20 +26,24 @@ export function App() {
       <Route path="/signup" element = { <Signup/> }/>
     </>
 
-    if(userJwt != null) {
+    
+  if(userJwt != null) {
+        
+    authRoutes = 
+      <Route path="/profile" element = { <Profile token={userJwt} logout={() => {
+      setUserJwt(null)
+      // window.localStorage.removeItem('appAuthData');
+      window.localStorage.clear();
+    }} /> }/>
+  }
+
+  /*  if(userJwt != null) {
       authRoutes = 
       <Route path="/profile" element={ <Profile userJwt={ userJwt } logout={() => setUserJwt(null)}/> }/>
     }
+  */
 
 
-    // if(userJwt != null) {
-      
-    //   authRoutes = 
-    //     <Route path="/profile" element = { <Profile userJwt={userJwt} logout={() => {
-    //     setUserJwt(null)
-    //     window.localStorage.removeItem('appAuthData');
-    //   }} /> }/>
-    // }
 
   return (
     <div> { userJwt != null ?
