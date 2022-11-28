@@ -1,22 +1,42 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import Constants from './Constants.json'
-import axios from 'axios';
 // import jwt from 'jsonwebtoken';
+import jwt_decode from "jwt-decode";
 
 export default function Profile(props) {
 
-  // let decodedJwt = jwt.decode(props.userJwt);
+  // const token = window.localStorage.getItem("appAuthData");
+  // const decoded = jwt_decode(props.token);
+  // console.log(decoded);
+
+  // const decodedJwt = jwt.decode(props.jwt);
   // console.log(decodedJwt);
 
   return (
-    <div>Profile
+    <div className="profile-container">
+      <h1 className="title">My Profile</h1>
+      <div className="table">
+        <tr>
+          <td> Name </td>
+          <td> Marion </td>
+        </tr>
+        <tr>
+          <td> Email </td>
+          <td> marion@email.com </td>
+        </tr>
+        <tr>
+          <td> Account </td>
+          <td> Delete my account </td>
+        </tr>
+        <tr>
+          <td> Connection </td>
+          <td onClick={ props.logout } style={{fontWeight: "bold"}}> Logout </td>
+        </tr>
+      </div>
+      <button onClick={ props.logout }>Logout</button>
       {/* <div>
-        Here is the data decoded from the user JWT<br />
-        email: { decodedJwt.user.email }<br />
-        id: { decodedJwt.user.id }<br />
+        email: { decoded.user.email }<br />
+        id: { decoded.user.id }<br />
       </div> */}
-      <button class="btn btn-outline-success btn-nav" onClick={ props.logout }>Logout</button>
     </div>
     
   )
