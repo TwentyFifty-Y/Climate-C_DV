@@ -2,6 +2,7 @@ import React from 'react';
 import v2 from "./visualisations/v2";
 import v3 from "./visualisations/v3";
 import V5 from "./visualisations/v5";
+import V6 from "./visualisations/v6";
 
 export default function View1() {
   return (
@@ -16,6 +17,9 @@ export default function View1() {
         </div>
         <div className="flex-item">
           <span>{V5()}</span>
+        </div>
+        <div className="flex-item">
+          <span>{V6()}</span>
         </div>
       </div>
     </div>
