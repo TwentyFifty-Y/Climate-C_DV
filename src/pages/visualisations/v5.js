@@ -48,9 +48,11 @@ export default function V5() {
 
     const LINK = "//localhost:3000";
 
-    axios.get(LINK + "/views?id=view5Main").then((response) => {
-        setV5Data(view5Handler(response.data));
-    });
+    useEffect(() => {
+        axios.get(LINK + "/views?id=view5Main").then((response) => {
+            setV5Data(view5Handler(response.data));
+        });
+    }, []) 
 
     const chartData = (v5Data) => {
 
