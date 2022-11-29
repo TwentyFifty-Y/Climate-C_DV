@@ -62,7 +62,7 @@ export default function V3() {
         axios.get(LINK + "/views?id=view3Monthly").then((response) => {
             setMaunaLoaMonthly(response.data.map((item) => {
                 return {
-                    time: item.year + "-" + item.month,
+                    time: item.year + "-" + item.month.padStart(2, "0"),
                     mean: item.mean
                 }
             }));
