@@ -19,9 +19,8 @@ export default function V5() {
     function view5Handler(array) {
         let data = array.map((item) => {
             const year = addLeadingZeros((1950 - item.airAgeYearBeforePresent), 6)
-            const yearAndMonth = year
             return {
-                time: yearAndMonth,
+                time: year,
                 mean: item.co2ppm
             }
         })
@@ -93,10 +92,10 @@ export default function V5() {
             xAxis: {
                 reverse: true,
                 // type: "time",
-                time: {
-                    unit: "year",
-                    stepSize: 100,
-                },
+                // time: {
+                //     unit: "year",
+                //     stepSize: 100,
+                // },
                 
             },
             yAxis: {
