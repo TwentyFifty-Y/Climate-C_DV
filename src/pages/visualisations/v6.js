@@ -38,9 +38,9 @@ export default function V6() {
                 {showText &&
                     <div>
                         <p className="info-text"></p>
-                        <p className="info-text"> This line graph shows the changes in the atmospheric co2 concentrations in ice cores 
-                        in the southern hemisphere for the past 800 000 years. <br/>
-                        Data is from <a href="https://www.ncei.noaa.gov/access/paleo-search/study/17975">National Centersfor Environmental Information</a></p>
+                        <p className="info-text"> This line graph shows the changes in the atmospheric co2 concentrations in ice cores
+                            in the southern hemisphere for the past 800 000 years. <br />
+                            Data is from <a href="https://www.ncei.noaa.gov/access/paleo-search/study/17975">National Centersfor Environmental Information</a></p>
                     </div>
                 }
 
@@ -49,6 +49,7 @@ export default function V6() {
     };
 
     const [v6Data, setv6Data] = useState([]);
+    const [v7Data, setV7Data] = useState([]);
     const LINK = "//localhost:3000";
 
     useEffect(() => {
@@ -56,11 +57,20 @@ export default function V6() {
             setv6Data(view6Handler(response.data));
         })
 
+        axios.get(LINK + "/views?id=view7Main").then((response) => {
+            setV7Data(response.data.map((item)=>{
+                return {
+                    time: (1950 - item.time),
+                    anomaly: item.anomaly
+                }
+            }));
+        })
+
     }, [])
 
 
 
-    const chartData = (v6Data) => {
+    const chartData = (v6Data, v7Data) => {
         return {
             datasets: [
                 {
@@ -75,10 +85,24 @@ export default function V6() {
                     pointRadius: 0,
                     borderWidth: 1,
                 },
+                {
+                    label: "Evolution of global temperature over the past two million years",
+                    data: v7Data,
+                    borderColor: "rgba(55, 87, 62)",
+                    backgroundColor: "rgb(55, 87, 62)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "anomaly",
+                    },
+                    pointRadius: 0,
+                    borderWidth: 1,
+                }
             ],
+
         }
     }
     const options = {
+        stacked: false,
         animation: false,
         responsive: true,
         plugins: {
@@ -101,12 +125,19 @@ export default function V6() {
             },
             yAxis: {
                 type: "linear",
+                position: "left",
+                
             },
+            yAxis2: {
+                type: "linear",
+                position: "right",
+                
+            }
         },
     };
     return (
         <div style={{ width: "1000px" }}>
-            <Line options={options} data={chartData(v6Data)} />
+            <Line options={options} data={chartData(v6Data, v7Data)} />
             <Text />
         </div>
     );
