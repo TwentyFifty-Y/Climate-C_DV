@@ -18,7 +18,13 @@ export default function V5() {
 
     function view5Handler(array) {
         let data = array.map((item) => {
-            const year = addLeadingZeros((1950 - item.airAgeYearBeforePresent), 6)
+            const yearRaw = addLeadingZeros((1950 - item.airAgeYearBeforePresent), 6)
+            var year;
+            if (yearRaw < 0) {
+                year = Number(yearRaw * -1).toFixed(0) + ' BC'
+            } else {
+                year = Number(yearRaw).toFixed(0) + ' AD'
+            }
             return {
                 time: year,
                 mean: item.co2ppm
