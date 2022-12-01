@@ -3,8 +3,6 @@ import axios from 'axios'
 import Constants from './Constants.json'
 import { useNavigate } from 'react-router-dom'
 
-
-
 export default function Signup() {
 
   const navigate = useNavigate();
