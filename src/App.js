@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react'
 
 import Home from './pages/Home';
+import Home2 from './pages/Home2';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Navbar1 from './pages/Navbar1';
@@ -27,15 +28,15 @@ export function App() {
     </>
 
     
-  if(userJwt != null) {
+  // if(userJwt != null) {
         
-    authRoutes = 
-      <Route path="/profile" element = { <Profile token={userJwt} logout={() => {
-      setUserJwt(null)
-      // window.localStorage.removeItem('appAuthData');
-      window.localStorage.clear();
-    }} /> }/>
-  }
+  //   authRoutes = 
+  //     <Route path="/profile" element = { <Profile test="text" token={userJwt} logout={() => {
+  //     setUserJwt(null)
+  //     console.log("something")
+  //     window.localStorage.removeItem('appAuthData');
+  //   }} /> }/>
+  // }
 
   /*  if(userJwt != null) {
       authRoutes = 
@@ -51,11 +52,16 @@ export function App() {
         <Navbar />
           <div className="container2">
             <Routes>
-              <Route path = "/profile" element = {<Profile/>} />
+              <Route path = "/" element = { <Home2 /> } />
+              <Route path= "/profile" element = { <Profile test="text" token={userJwt} logout={() => {
+                  setUserJwt(null)
+                  console.log("something")
+                  window.localStorage.removeItem('appAuthData');
+                }} /> }/>
               <Route path = "/view1" element = {<View1/>} />
               <Route path = "/view2" element = {<View2/>} />
               <Route path = "/custom" element = {<Custom/>} />
-              <Route path = "*" element = { <Profile /*userLoggedIn={userJwt != null}*//> }/>
+              <Route path = "*" element = { <Home2/> }/>
             </Routes>
           </div>
         </>

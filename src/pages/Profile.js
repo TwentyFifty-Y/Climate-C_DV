@@ -1,6 +1,9 @@
 import React from 'react'
 // import jwt from 'jsonwebtoken';
 import jwt_decode from "jwt-decode";
+import axios from 'axios'
+import Constants from './Constants.json'
+import { useNavigate } from 'react-router-dom'
 
 export default function Profile(props) {
 
@@ -10,6 +13,27 @@ export default function Profile(props) {
 
   // const decodedJwt = jwt.decode(props.jwt);
   // console.log(decodedJwt);
+
+  const handleDeleteRequest = async (event) => {
+    event.preventDefault();
+    
+    try {
+      const result = await axios.delete(Constants.API_ADDRESS + '/delete',
+      {
+        username:event.target.username.value,
+        email:event.target.email.value,
+        password:event.target.password.value,
+      });
+      console.log(result);
+      setTimeout(() => {
+        console.log("yaas you're deleted");
+        navigate('/home', { replace: true });      // so that the user after submitting goes to "login" page && {replace} so the person cannot go back with the arrows
+    }, 900);
+
+    } catch(error) {
+      alert(error);
+    }
+  }
 
   return (
     <div className="profile-container">
@@ -25,14 +49,13 @@ export default function Profile(props) {
         </tr>
         <tr>
           <td> Account </td>
-          <td> Delete my account </td>
+          <td onClick = { handleDeleteRequest }> Delete my account </td>
         </tr>
         <tr>
           <td> Connection </td>
-          <td onClick={ props.logout } style={{fontWeight: "bold"}}> Logout </td>
+          <td onClick={ props.logout } style={{fontWeight: "bold", cursor: "pointer"}}> Logout </td>
         </tr>
       </div>
-      <button onClick={ props.logout }>Logout</button>
       {/* <div>
         email: { decoded.user.email }<br />
         id: { decoded.user.id }<br />
