@@ -23,8 +23,8 @@ export default function Navbar(props) {
          <form className="d-flex" role="search">
             {/* <li className="nav-item"/> */}
             <Link className="nav-link" to="/profile">Profile</Link>
-            {/* <Link className="btn btn-outline-success btn-nav" to="/" type="submit" onClick={ props.logout }>Logout</Link>
-            <button className="btn btn-outline-success btn-nav" onClick={ props.logout }>Logout</button> */}
+            {/* <Link className="btn btn-outline-success btn-nav" to="/" type="submit" onClick={ props.logout }>Logout</Link> */}
+            {/* <button className="btn btn-outline-success btn-nav" onClick={ props.logout }>Logout</button> */}
 
         </form>
         </div>

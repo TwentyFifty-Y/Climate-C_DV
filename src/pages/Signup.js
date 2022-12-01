@@ -12,7 +12,6 @@ export default function Signup() {
   const handleSignupSubmit = async (event) => {
     event.preventDefault();
     
-    
     try {
       const result = await axios.post(Constants.API_ADDRESS + '/register',
       {

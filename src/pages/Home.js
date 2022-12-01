@@ -6,14 +6,12 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   return (
     <div className="home-container">
-      {/* <span> User login status: { props.userLoggedIn ? "is logged in" : "is not logged in" }</span> */}
-      <h1>Choose a ready-made view <br/> or create a custom one</h1>
-    
-      <h2>In this site you can see information of climate change in several charts.</h2>
+      <h1>View information about climate change <br/> with several different charts</h1>
         <div>
               <Link to ="/login" type="button" className="btn btn-outline-primary btn-home btn-home-li btn-lg">Login</Link>
               <Link to ="/signup" type="button" className="btn btn-outline-primary btn-home btn-home-su btn-lg">Sign up</Link>         
         </div>
+      <br/> <br/>
       <img src="https://cdn.pixabay.com/photo/2016/10/20/18/35/earth-1756274__480.jpg"/>
       
       <h2>Little bit of basic information about climate change</h2>
