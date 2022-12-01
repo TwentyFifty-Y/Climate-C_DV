@@ -1,6 +1,6 @@
 import React from 'react'
-// import jwt from 'jsonwebtoken';
-import jwt_decode from "jwt-decode";
+// import jwt from 'jsonwebtoken'
+import jwt_decode from "jwt-decode"
 import axios from 'axios'
 import Constants from './Constants.json'
 import { useNavigate } from 'react-router-dom'
@@ -14,16 +14,18 @@ export default function Profile(props) {
   // const decodedJwt = jwt.decode(props.jwt);
   // console.log(decodedJwt);
 
+  const navigate = useNavigate();
+
   const handleDeleteRequest = async (event) => {
     event.preventDefault();
     
     try {
-      const result = await axios.delete(Constants.API_ADDRESS + '/delete',
-      {
-        username:event.target.username.value,
-        email:event.target.email.value,
-        password:event.target.password.value,
-      });
+      const result = await axios.delete(Constants.API_ADDRESS + '/user',
+    {
+        username:event.username,
+        // email:event.target.email.value,
+        // password:event.target.password.value,
+    });
       console.log(result);
       setTimeout(() => {
         console.log("yaas you're deleted");
@@ -49,7 +51,7 @@ export default function Profile(props) {
         </tr>
         <tr>
           <td> Account </td>
-          <td onClick = { handleDeleteRequest }> Delete my account </td>
+          <td onClick = { handleDeleteRequest } style={{fontWeight: "bold", cursor: "pointer"}}> Delete my account </td>
         </tr>
         <tr>
           <td> Connection </td>
