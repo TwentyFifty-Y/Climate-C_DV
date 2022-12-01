@@ -19,9 +19,8 @@ export default function V5() {
     function view5Handler(array) {
         let data = array.map((item) => {
             const year = addLeadingZeros((1950 - item.airAgeYearBeforePresent), 6)
-            const yearAndMonth = year
             return {
-                time: yearAndMonth,
+                time: year,
                 mean: item.co2ppm
             }
         })
@@ -48,9 +47,11 @@ export default function V5() {
 
     const LINK = "//localhost:3000";
 
-    axios.get(LINK + "/views?id=view5Main").then((response) => {
-        setV5Data(view5Handler(response.data));
-    });
+    useEffect(() => {
+        axios.get(LINK + "/views?id=view5Main").then((response) => {
+            setV5Data(view5Handler(response.data));
+        });
+    }, []) 
 
     const chartData = (v5Data) => {
 
@@ -91,10 +92,10 @@ export default function V5() {
             xAxis: {
                 reverse: true,
                 // type: "time",
-                time: {
-                    unit: "year",
-                    stepSize: 100,
-                },
+                // time: {
+                //     unit: "year",
+                //     stepSize: 100,
+                // },
                 
             },
             yAxis: {
