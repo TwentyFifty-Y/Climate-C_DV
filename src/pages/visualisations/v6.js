@@ -27,6 +27,18 @@ export default function V6() {
         return data;
     }
 
+    function view7Handler(array) {
+        let data = array.map((item) => {
+            const yearRaw = addLeadingZeros((1950 - (item.time*1000)), 6)
+            const year = Number(yearRaw).toFixed(0)
+            return {
+                time: year,
+                anomaly: item.anomaly
+            }
+        })
+        return data;
+    }
+
     const Text = () => {
         const [showText, setShowText] = useState(false);
 
@@ -58,12 +70,7 @@ export default function V6() {
         })
 
         axios.get(LINK + "/views?id=view7Main").then((response) => {
-            setV7Data(response.data.map((item)=>{
-                return {
-                    time: (1950 - item.time),
-                    anomaly: item.anomaly
-                }
-            }));
+            setV7Data(view7Handler(response.data));
         })
 
     }, [])
@@ -84,18 +91,20 @@ export default function V6() {
                     },
                     pointRadius: 0,
                     borderWidth: 1,
+                    yAxisID: "yAxis"
                 },
                 {
                     label: "Evolution of global temperature over the past two million years",
                     data: v7Data,
-                    borderColor: "rgba(55, 87, 62)",
-                    backgroundColor: "rgb(55, 87, 62)",
+                    borderColor: "rgba(80, 140, 164)",
+                    backgroundColor: "rgb(80, 140, 164)",
                     parsing: {
                         xAxisKey: "time",
                         yAxisKey: "anomaly",
                     },
                     pointRadius: 0,
                     borderWidth: 1,
+                    yAxisID: "yAxis2"
                 }
             ],
 
@@ -131,7 +140,9 @@ export default function V6() {
             yAxis2: {
                 type: "linear",
                 position: "right",
-                
+                grid: {
+                    display: false
+                },
             }
         },
     };
