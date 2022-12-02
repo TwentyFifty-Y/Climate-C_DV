@@ -111,7 +111,6 @@ export default function V6() {
         }
     }
     const options = {
-        stacked: false,
         animation: false,
         responsive: true,
         plugins: {
@@ -125,12 +124,24 @@ export default function V6() {
         },
         scales: {
             xAxis: {
-                reverse: true
+                type: "linear",
                 // type: "time",
                 // time: {
                 //     unit: "year",
                 //     stepSize: 10
                 // },
+                max: new Date().getFullYear(),
+                ticks: {
+                    // Include appropriate year labels
+                    callback: function(value, index, ticks) {
+                        //If the number is negative, make it positive and add BC, otherwise add AD
+                        if (value < 0) {
+                            return Math.abs(value) + " BC";
+                        } else {
+                            return value + " AD";
+                        }
+                    }
+                }
             },
             yAxis: {
                 type: "linear",
