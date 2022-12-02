@@ -2,11 +2,8 @@ import React from 'react'
 import jwt_decode from "jwt-decode"
 import axios from 'axios'
 import Constants from './Constants.json'
-import { useNavigate } from 'react-router-dom'
 
 export default function Profile(props) {
-
-  const navigate = useNavigate();
 
   const decodedToken = jwt_decode(props.token);
   console.log(decodedToken);
@@ -56,6 +53,5 @@ export default function Profile(props) {
         </table>
       </div>
     </div>
-    
   )
 }
