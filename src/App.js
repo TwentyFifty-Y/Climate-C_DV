@@ -26,7 +26,6 @@ export function App() {
         }} /> }/>
       <Route path="/signup" element = { <Signup/> }/>
     </>
-
     
   // if(userJwt != null) {
         
@@ -44,8 +43,6 @@ export function App() {
     }
   */
 
-
-
   return (
     <div> { userJwt != null ?
       <>
@@ -53,11 +50,13 @@ export function App() {
           <div className="container2">
             <Routes>
               <Route path = "/" element = { <Home2 /> } />
-              <Route path= "/profile" element = { <Profile test="text" token={userJwt} logout={() => {
+              <Route path = "/profile" element = { <Profile test="text" token = {userJwt} 
+              logout = {() => {
                   setUserJwt(null)
                   console.log("something")
                   window.localStorage.removeItem('appAuthData');
-                }} /> }/>
+                }} />
+              }/>
               <Route path = "/view1" element = {<View1/>} />
               <Route path = "/view2" element = {<View2/>} />
               <Route path = "/custom" element = {<Custom/>} />

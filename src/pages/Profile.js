@@ -1,14 +1,34 @@
-import React, { useState, useEffect } from 'react'
-// import jwt from 'jsonwebtoken'
+import React from 'react'
 import jwt_decode from "jwt-decode"
-// import axios from 'axios'
-// import Constants from './Constants.json'
-// import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import Constants from './Constants.json'
+import { useNavigate } from 'react-router-dom'
 
 export default function Profile(props) {
 
+  const navigate = useNavigate();
+
   const decodedToken = jwt_decode(props.token);
   console.log(decodedToken);
+
+  async function handleDeleteRequest(username) {
+    username.preventDefault();
+    try {
+      const result = await axios.delete(Constants.API_ADDRESS + '/user', {
+      params: {
+        username: decodedToken.user.username.S
+      }
+      });
+      console.log("Deletion completed");
+      window.localStorage.removeItem('appAuthData');
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 900);
+
+    } catch(error) {
+      alert(error);
+    }
+  }
 
   return (
     <div className="profile-container">
@@ -30,7 +50,7 @@ export default function Profile(props) {
           </tr>
           <tr>
             <td>Account</td>
-            <td /*onClick = { handleDeleteRequest }*/ style={{fontWeight: "bold", cursor: "pointer"}}> Delete my account </td>
+            <td onClick = { handleDeleteRequest } style={{fontWeight: "bold", cursor: "pointer"}}> Delete my account </td>
           </tr>
           </tbody>
         </table>
