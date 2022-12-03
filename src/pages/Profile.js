@@ -11,7 +11,7 @@ export default function Profile(props) {
   async function handleDeleteRequest(username) {
     username.preventDefault();
     try {
-      const result = await axios.delete(Constants.API_ADDRESS + '/user', {
+      await axios.delete(Constants.API_ADDRESS + '/user', {
       params: {
         username: decodedToken.user.username.S
       }

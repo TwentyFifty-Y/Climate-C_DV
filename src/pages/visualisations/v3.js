@@ -173,7 +173,7 @@ export default function V3() {
     };
 
     return (
-        <div style={{ width: "1000px" }}>
+        <div /*style={{ width: "1000px" }}*/ className="view-canvas">
             <Line data={chartData(maunaLoaAnnualData, maunaLoaMonthly, v4SampleOne, v4SampleTwo, v4SampleThree)} options={options} />
             <Text />
         </div>

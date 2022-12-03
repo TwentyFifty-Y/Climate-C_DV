@@ -158,7 +158,7 @@ export default function V6() {
         },
     };
     return (
-        <div style={{ width: "1000px" }}>
+        <div /*style={{ width: "1000px" }}*/ className="view-canvas">
             <Line options={options} data={chartData(v6Data, v7Data)} />
             <Text />
         </div>

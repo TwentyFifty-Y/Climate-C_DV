@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   return (
     <div className="home-container">
-      <h1>View information about climate change <br/> with several different charts</h1>
+      <h1>View information about climate change with several different charts</h1>
         <div>
               <Link to ="/login" type="button" className="btn btn-outline-primary btn-home btn-home-li btn-lg">Login</Link>
               <Link to ="/signup" type="button" className="btn btn-outline-primary btn-home btn-home-su btn-lg">Sign up</Link>         

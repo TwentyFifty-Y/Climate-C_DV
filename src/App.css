@@ -27,6 +27,7 @@
   float: left;
   background-color: white;
   color: var(--main-blue);
+  margin-top: 15px
 }
 
 .btn-slup {
@@ -87,6 +88,13 @@
   box-shadow: 0px 0px 8px var(--main-orange)!important;
 }
 
+/* Titles */
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
 /* Home */
 
 .home-container {
@@ -98,14 +106,13 @@
 }
 
 .home-container h1 {
-  padding: 70px;
-  font-size: 50px;
+  padding: 70px 100px 30px;
   font-weight: bold;
 }
 
 .home-container p {
-  width: 50%;
-  margin-left: 24.5%;
+  width: 70%;
+  margin-left: 15%;
 }
 
 .home-container .ext-link {
@@ -114,6 +121,11 @@
 
 .home-container img {
   border-radius: 10px;
+}
+
+img {
+  width: 80%;
+  margin-bottom: 50px;
 }
 
 /* Navbar */
@@ -127,10 +139,8 @@
 
 .slup-container h1 {
   padding: 70px;
-  font-size: 50px;
   font-weight: bold;
   /* color:white; */
-  text-align: center;
 }
 
 .slup-form {
@@ -176,7 +186,6 @@
 /* View */
 
 .title {
-  text-align: center;
   padding: 30px 0px 55px 0px;
 }
 
@@ -197,14 +206,18 @@
   justify-content: space-evenly;
   text-align: center;
   gap: 30px;
-  padding: 10px 10px;
+  /* padding: 10px 10px; */
 }
 
 #flex-container > div {
-  flex-basis: 35%;
+  /* flex-basis: 35%; */
   padding: 20px;
   background-color: white;
   border-radius: 10px;
+}
+
+.view-canvas {
+  width: 1000px
 }
 
 .info-text {
@@ -217,11 +230,6 @@
 .custom-container {
   background-color: var(--main-gray);
   padding-bottom: 100px;
-}
-
-/* Photo on mainpage */
-img {
-  margin-bottom: 50px;
 }
 
 .dropdown {
@@ -261,4 +269,70 @@ img {
   margin: 0;
   font: inherit;
   cursor: pointer;
+}
+
+
+@media screen and (max-width: 992px) {
+
+  h1 {
+    font-size: 40px
+  }  
+  
+  /* Home */
+  .home-container h2 {
+    font-size: 27px
+  }
+
+  .home-container p, a {
+    font-size: 14px
+  }
+
+  /* Views */
+  .view-canvas {
+    width: 700px
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  h1 {
+    font-size: 35px
+  }
+
+  /* Home */
+  .home-container h2 {
+    font-size: 25px
+  }
+
+  .home-container p, a {
+    font-size: 13px
+  }
+
+  .btn-home, .btn-nav1, .btn-info {
+    font-size: 13px;
+  }
+
+  /* Views */
+  .view-canvas {
+    width: 500px
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  h1 {
+    font-size: 30px
+  }
+
+  /* Home */
+  .home-container h2 {
+    font-size: 22px
+  }
+
+  .btn-home, .btn-nav1, .btn-info {
+    font-size: 12px;
+  }
+
 }

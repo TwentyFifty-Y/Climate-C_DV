@@ -52,7 +52,8 @@ export default function Custom() {
 
   return (
     <div className="custom-container">
-        <div className="title">
+      <h1 className="title">My custom views</h1>
+        {/* <div className="title">
             <ElementMaker
                 value={title}
                 handleChange={(e) => setTitle(e.target.value)}
@@ -60,7 +61,7 @@ export default function Custom() {
                 handleBlur={() => setShowInputEle(false)}
                 showInputEle={showInputEle}
             />
-        </div>
+        </div> */}
             <div className="dropdown">
       <button onClick={handleOpen}>Dropdown</button>
       {open ? (

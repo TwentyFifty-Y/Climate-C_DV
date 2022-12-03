@@ -110,7 +110,7 @@ export default function V5() {
         },
     };
     return (
-        <div style={{ width: "1000px" }}>
+        <div /*style={{ width: "1000px" }}*/ className="view-canvas">
             <Line data={chartData(v5Data)} options={options} />
             <Text />
         </div>

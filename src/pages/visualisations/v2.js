@@ -210,7 +210,7 @@ export default function V2() {
     };
 
     return (
-        <div style={{ width: "1000px" }}>
+        <div /*style={{ width: "1000px" }}*/ className="view-canvas">
             <h1>TimeLineGraphDemo</h1>
             <Line options={options} data={chartData(globalAnnualData, globalMonthlyData, northAnnualData, northMonthlyData, southAnnualData, southMonthlyData, v2Data)} />
             <Text />
