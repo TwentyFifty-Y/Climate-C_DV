@@ -4,6 +4,8 @@ import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 import 'chartjs-adapter-luxon';
 
+var randomColor = require('randomcolor');
+
 export default function V8() {
 
     function view8Handler(json) {
@@ -16,7 +18,7 @@ export default function V8() {
                     newJson.push({
                         country: key, data: json.map((i) => {
                             //make data be an array of objects with year: i.Year and value: i[key]
-                            return { year: i.Year, value: i[key] }
+                            return { year: i.Year, value: (Number(i[key]) * 3.644) }
                         })
                     });
                 }
@@ -56,50 +58,68 @@ export default function V8() {
         })
     }, [])
 
+    const chartData = (v8Data) => {
+        return {
+            datasets: v8Data.map((item) => {
+                let color = randomColor();
+                return {
+                    label: item.country,
+                    data: item.data.map((i) => {
+                        return { x: i.year, y: i.value }
+                    }),
+                    borderColor: color,
+                    backgroundColor: color,
+                    fill: false,
+                    pointRadius: 0,
+                    borderWidth: 1,
+                    fill: true
+                }
+            })
+            // label: "Atmospheric co2 concentrations in ice cores in the southern hemisphere",
+            //     data: v6Data,
+            //         borderColor: "rgba(55, 87, 62)",
+            //             backgroundColor: "rgb(55, 87, 62)",
+            //                 parsing: {
+            //     xAxisKey: "time",
+            //         yAxisKey: "mean",
+            //     },
+            // pointRadius: 0,
+            //     borderWidth: 1,
+            //         yAxisID: "yAxis"
+        }
+    }
+
+    const options = {
+        animation: false,
+        responsive: true,
+        plugins: {
+            legend: {
+                position: "top",
+            },
+            title: {
+                display: true,
+                text: "CO2 emissions by country",
+            },
+        },
+        scales: {
+            xAxis: {
+                type: "linear",
+                position: "bottom",
+                min: 1959,
+            },
+            yAxis: {
+                type: "linear",
+                position: "left",
+                stacked: true,
+            }
+        },
+    };
+
     //return v8Data looped through and create a line chart for each country
     return (
-        <div>
+        <div /*style={{ width: "1000px" }}*/ className="view-canvas">
+            <Line options={options} data={chartData(v8Data)} />
             <Text />
-            {v8Data.map((item) => {
-                return (
-                    <div>
-                        <h2>{item.country}</h2>
-                        <Line
-                            data={{
-                                datasets: [{
-                                    label: item.country,
-                                    data: item.data,
-                                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                                    borderColor: 'rgba(255, 99, 132, 1)',
-                                    borderWidth: 1,
-                                    parsing: {
-                                        xAxisKey: "year",
-                                        yAxisKey: "value",
-                                    },
-                                }]
-                            }}
-                            options={{
-                                scales: {
-                                    x: {
-                                        type: 'linear',
-                                        position: 'bottom',
-                                        title: {
-                                            display: true,
-                                            text: 'Year'
-                                        }
-                                    },
-                                    y: {
-                                        title: {
-                                            display: true,
-                                            text: 'Value'
-                                        }
-                                    }
-                                }
-                            }}
-                        />
-                    </div>
-                )
-            })}
         </div>
-    )
+    );
 }

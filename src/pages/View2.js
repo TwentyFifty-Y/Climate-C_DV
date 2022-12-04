@@ -6,28 +6,17 @@ import V8 from "./visualisations/v8";
 export default function View2() {
   return (
     <>
-    <div className="container-view">
-      <h1 className="title">Emission sources</h1>
-      <div id="flex-container">
-        {/* <div className="flex-item">
+      <div className="container-view">
+        <h1 className="title">Emission sources</h1>
+        <div id="flex-container">
+          {/* <div className="flex-item">
           <span>{v1()}</span>
         </div>  */}
-        <div className="flex-item">
-          <span>{v2()}</span>
+          <div className="flex-item">
+            <span>{V8()}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="container-view">
-      <h1 className="title">Emission sources</h1>
-      <div id="flex-container">
-        {/* <div className="flex-item">
-          <span>{v1()}</span>
-        </div>  */}
-        <div className="flex-item">
-          <span>{V8()}</span>
-        </div>
-      </div>
-    </div>
 
     </>
   )
