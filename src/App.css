@@ -217,6 +217,10 @@ img {
   width: 100%;
 }
 
+.flex-item > span {
+  width: 100%;
+}
+
 .flex-item > div {
   padding: 20px;
   background-color: white;
