@@ -95,6 +95,12 @@ export default function V8() {
         plugins: {
             legend: {
                 position: "top",
+                labels: {
+                    boxWidth: 10,
+                    font: {
+                        size: 10
+                    }
+                }
             },
             title: {
                 display: true,
