@@ -39,6 +39,24 @@ export default function V6() {
         return data;
     }
 
+    function view10Handler(array) {
+        let data = array.map((item) => {
+            const yearRaw =item.yearsFromZero
+            var year;
+            if (yearRaw < 0) {
+                year = Number(yearRaw * -1).toFixed(0) + ' BC'
+            } else {
+                year = Number(yearRaw).toFixed(0) + ' AD'
+            }
+            return {
+                time: year,
+                mean: item.description
+            }
+        })
+        return data;
+    }
+ 
+
     const Text = () => {
         const [showText, setShowText] = useState(false);
 
@@ -52,7 +70,7 @@ export default function V6() {
                         <p className="info-text"></p>
                         <p className="info-text"> This line graph shows the changes in the atmospheric co2 concentrations in ice cores
                             in the southern hemisphere for the past 800 000 years. <br />
-                            Data is from <a href="https://www.ncei.noaa.gov/access/paleo-search/study/17975">National Centersfor Environmental Information</a></p>
+                            Data is from <a href="https://www.ncei.noaa.gov/access/paleo-search/study/17975">National Centers for Environmental Information</a></p>
                     </div>
                 }
 
@@ -62,6 +80,7 @@ export default function V6() {
 
     const [v6Data, setv6Data] = useState([]);
     const [v7Data, setV7Data] = useState([]);
+    const [v10Data, setV10Data] = useState([]);
     const LINK = "//localhost:3000";
 
     useEffect(() => {
@@ -73,11 +92,15 @@ export default function V6() {
             setV7Data(view7Handler(response.data));
         })
 
+        axios.get(LINK +"/views?id=view10Main").then((response)=>{
+            setV10Data(view10Handler(response.data));
+        })
+
     }, [])
 
 
 
-    const chartData = (v6Data, v7Data) => {
+    const chartData = (v6Data, v7Data, v10Data) => {
         return {
             datasets: [
                 {
@@ -105,6 +128,18 @@ export default function V6() {
                     pointRadius: 0,
                     borderWidth: 1,
                     yAxisID: "yAxis2"
+                },
+                {
+                    label: "Human evolution events",
+                    data: v10Data,
+                    backgroundColor: "rgb(163, 0, 0)",
+                    borderColor: "rgb(163, 0, 0)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: ""
+                    },
+                    pointRadius: 0,
+                    borderWidth: 1
                 }
             ],
 
@@ -154,12 +189,14 @@ export default function V6() {
                 grid: {
                     display: false
                 },
-            }
+            },
+            
+
         },
     };
     return (
         <div /*style={{ width: "1000px" }}*/ className="view-canvas">
-            <Line options={options} data={chartData(v6Data, v7Data)} />
+            <Line options={options} data={chartData(v6Data, v7Data, v10Data)} />
             <Text />
         </div>
     );
