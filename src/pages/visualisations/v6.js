@@ -46,7 +46,7 @@ export default function V6() {
             return {
                 time: year,
                 //make mean a random number between -4 and -1
-                mean: Math.random() * (-1 - -4) + -4,
+                mean: -7.9,
                 description: item.description
             }
         })
@@ -89,7 +89,7 @@ export default function V6() {
             setV7Data(view7Handler(response.data));
         })
 
-        axios.get(LINK +"/views?id=view10Main").then((response)=>{
+        axios.get(LINK +"/views?id=view10Long").then((response)=>{
             setV10Data(view10Handler(response.data));
         })
 
@@ -134,12 +134,10 @@ export default function V6() {
                     borderColor: "rgb(163, 0, 0)",
                     parsing: {
                         xAxisKey: "time",
-                        yAxisKey: "mean",
-                        descriptionKey: "description",
-                        
+                        yAxisKey: "mean",                        
                     },
-                    pointRadius: 0,
-                    borderWidth: 1,
+                    pointRadius: 2,
+                    borderWidth: 0,
                     yAxisID: "yAxis2"
                 }
             ],
@@ -160,9 +158,12 @@ export default function V6() {
             tooltip: {
                 callbacks: {
                     label: function (context) {
-                        console.log(context)
+                        // console.log(context)
                         if (context.raw.description) {
                             return context.raw.description;
+                        } else {
+                            if (context.raw.mean) {return context.raw.mean}
+                            if (context.raw.anomaly) {return context.raw.anomaly}
                         }
                     }
                 }
