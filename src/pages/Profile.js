@@ -17,6 +17,7 @@ export default function Profile(props) {
       }
       });
       console.log("Deletion completed");
+      alert("The user has successfully been deleted!")
       window.localStorage.removeItem('appAuthData');
       setTimeout(() => {
         window.location.reload(false);
@@ -40,6 +41,10 @@ export default function Profile(props) {
           <tr>
             <td>Email</td>
             <td>{ decodedToken.user.email.S }</td>
+          </tr>
+          <tr>
+            <td>ID</td>
+            <td>{ decodedToken.user.id.S }</td>
           </tr>
           <tr>
             <td>Connection</td>
