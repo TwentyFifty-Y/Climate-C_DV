@@ -161,6 +161,9 @@ export default function V6() {
                         // console.log(context)
                         if (context.raw.description) {
                             return context.raw.description;
+                        } else {
+                            if (context.raw.mean) {return context.raw.mean}
+                            if (context.raw.anomaly) {return context.raw.anomaly}
                         }
                     }
                 }
