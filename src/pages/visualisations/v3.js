@@ -7,6 +7,15 @@ import 'chartjs-adapter-luxon';
 
 export default function V3() {
 
+    function addLeadingZeros(num, totalLength) {
+        if (num < 0) {
+            const withoutMinus = String(num).slice(1);
+            return '-' + withoutMinus.padStart(totalLength, '0');
+        }
+
+        return String(num).padStart(totalLength, '0');
+    }
+
     const Text = () => {
         const [showText, setShowText] = useState(false);
         return (
@@ -28,6 +37,7 @@ export default function V3() {
     const [v4SampleOne, setV4SampleOne] = useState([]);
     const [v4SampleTwo, setV4SampleTwo] = useState([]);
     const [v4SampleThree, setV4SampleThree] = useState([]);
+    const [v10ForV3, setV10ForV3]= useState([])
 
     const LINK = "//localhost:3000";
 
@@ -53,6 +63,20 @@ export default function V3() {
         });
         return data;
     }
+    function view10ForV3Handler(array){
+        {
+            let data = array.map((item) => {
+                const yearRaw = addLeadingZeros((item.yearsFromZero), 6)
+                const year = Number(yearRaw).toFixed(0)
+                return {
+                    time: year,
+                    mean: 275,
+                    description: item.description
+                }
+            })
+            return data;
+        }
+    }
 
     useEffect(() => {
         axios.get(LINK + "/views?id=view3Annual").then((response) => {
@@ -76,10 +100,13 @@ export default function V3() {
         axios.get(LINK + "/views?id=view4SampleThree").then((response) => {
             setV4SampleThree(view4Handler(response.data));
         });
+        axios.get(LINK+ "/views?id=view10Short").then((response)=> {
+            setV10ForV3(view10ForV3Handler(response.data));
+        })
 
     }, [])
 
-    const chartData = (view3Annual, view3Monthly, view4SampleOne, view4SampleTwo, view4SampleThree) => {
+    const chartData = (view3Annual, view3Monthly, view4SampleOne, view4SampleTwo, view4SampleThree, v10ForV3 ) => {
         return {
             datasets: [
                 {
@@ -142,6 +169,20 @@ export default function V3() {
                         yAxisKey: "mean",
                     },
                     pointRadius: 0,
+                },
+                {
+                    label: "Human evolution events",
+                    data: v10ForV3,
+                    fill: false,
+                    backgroundColor: "rgb(184, 46, 113)",
+                    borderColor: "rgb(184, 46, 113)",
+                    parsing: {
+                        xAxisKey: "time",
+                        yAxisKey: "mean",
+                        descriptionKey: "description",
+                    },
+                    pointRadius: 3,
+                    borderWidth: 0,
                 }
             ]
         }
@@ -158,6 +199,18 @@ export default function V3() {
                 display: true,
                 text: "Mauna Loa CO2 Atmospheric Concentration Data",
             },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        console.log(context)
+                        if (context.raw.description) {
+                            return context.raw.description;
+                        } else {
+                            return context.raw.mean
+                        }
+                    }
+                }
+            }
         },
         scales: {
             xAxis: {
@@ -174,7 +227,7 @@ export default function V3() {
 
     return (
         <div /*style={{ width: "1000px" }}*/ className="view-canvas">
-            <Line data={chartData(maunaLoaAnnualData, maunaLoaMonthly, v4SampleOne, v4SampleTwo, v4SampleThree)} options={options} />
+            <Line data={chartData(maunaLoaAnnualData, maunaLoaMonthly, v4SampleOne, v4SampleTwo, v4SampleThree,v10ForV3)} options={options} />
             <Text />
         </div>
     );
