@@ -39,22 +39,19 @@ export default function V6() {
         return data;
     }
 
-    function view10Handler(array) //{
-    //     let data = array.map((item) => {
-    //         const yearRaw =item.yearsFromZero
-    //         var year;
-    //         if (yearRaw < 0) {
-    //             year = Number(yearRaw * -1).toFixed(0) + ' BC'
-    //         } else {
-    //             year = Number(yearRaw).toFixed(0) + ' AD'
-    //         }
-    //         return {
-    //             time: year,
-    //             mean: item.description
-    //         }
-    //     })
-    //     return data;
-    // }
+    function view10Handler(array) {
+        let data = array.map((item) => {
+            const yearRaw = addLeadingZeros((item.yearsFromZero), 6)
+            const year = Number(yearRaw).toFixed(0)
+            return {
+                time: year,
+                //make mean a random number between -4 and -1
+                mean: Math.random() * (-1 - -4) + -4,
+                description: item.description
+            }
+        })
+        return data;
+    }
  
 
     const Text = () => {
@@ -130,17 +127,20 @@ export default function V6() {
                     yAxisID: "yAxis2"
                 },
                 {
-                    type: "scatter",
+                    
                     label: "Human evolution events",
                     data: v10Data,
                     backgroundColor: "rgb(163, 0, 0)",
                     borderColor: "rgb(163, 0, 0)",
                     parsing: {
                         xAxisKey: "time",
-                        yAxisKey: ""
+                        yAxisKey: "mean",
+                        descriptionKey: "description",
+                        
                     },
                     pointRadius: 0,
-                    borderWidth: 1
+                    borderWidth: 1,
+                    yAxisID: "yAxis2"
                 }
             ],
 
@@ -157,6 +157,16 @@ export default function V6() {
                 display: true,
                 text: "Ice core 800k year composite study CO2 measurements",
             },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        console.log(context)
+                        if (context.raw.description) {
+                            return context.raw.description;
+                        }
+                    }
+                }
+            }
         },
         scales: {
             xAxis: {
