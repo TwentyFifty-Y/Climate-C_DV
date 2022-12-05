@@ -39,22 +39,22 @@ export default function V6() {
         return data;
     }
 
-    function view10Handler(array) {
-        let data = array.map((item) => {
-            const yearRaw =item.yearsFromZero
-            var year;
-            if (yearRaw < 0) {
-                year = Number(yearRaw * -1).toFixed(0) + ' BC'
-            } else {
-                year = Number(yearRaw).toFixed(0) + ' AD'
-            }
-            return {
-                time: year,
-                mean: item.description
-            }
-        })
-        return data;
-    }
+    function view10Handler(array) //{
+    //     let data = array.map((item) => {
+    //         const yearRaw =item.yearsFromZero
+    //         var year;
+    //         if (yearRaw < 0) {
+    //             year = Number(yearRaw * -1).toFixed(0) + ' BC'
+    //         } else {
+    //             year = Number(yearRaw).toFixed(0) + ' AD'
+    //         }
+    //         return {
+    //             time: year,
+    //             mean: item.description
+    //         }
+    //     })
+    //     return data;
+    // }
  
 
     const Text = () => {
@@ -130,6 +130,7 @@ export default function V6() {
                     yAxisID: "yAxis2"
                 },
                 {
+                    type: "scatter",
                     label: "Human evolution events",
                     data: v10Data,
                     backgroundColor: "rgb(163, 0, 0)",
