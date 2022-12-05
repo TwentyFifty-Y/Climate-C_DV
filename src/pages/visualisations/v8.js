@@ -61,7 +61,11 @@ export default function V8() {
     const chartData = (v8Data) => {
         return {
             datasets: v8Data.map((item) => {
-                let color = randomColor();
+                let color = randomColor({
+                    count: v8Data.length,
+                    luminosity: 'light',
+                    hue: 'random'
+                });
                 return {
                     label: item.country,
                     data: item.data.map((i) => {
