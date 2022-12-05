@@ -46,28 +46,31 @@ export default function V9() {
         axios.get(LINK + "/views?id=view9Main").then((response) => {
             setV9Data(view9Handler(response.data.sector));
         });
-    }, []) 
-    
+    }, [])
+
 
     const chartData = (v9Data) => {
 
         return {
-            datasets: [
-                v9Data.map((item) => {
-                    let color = randomColor();
-                    return {
-                        label: item.sector,
-                        data: item.data,
-                        borderColor: color,
-                        backgroundColor: color,
-                    }
-                })
-            ]
+            labels: v9Data.map((item) => {
+                return item.sector;
+            }),
+            datasets: [{
+                label: 'Global Emissions by Sector',
+                data: v9Data.map((item) => {
+                    return item.percent;
+                }),
+                backgroundColor: randomColor({
+                    count: v9Data.length,
+                    luminosity: 'light',
+                    hue: 'random'
+                }),
+            }]
         }
 
     }
     const options = {
-        
+
     };
 
     return (
