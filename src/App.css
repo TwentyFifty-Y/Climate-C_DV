@@ -214,10 +214,11 @@ img {
   padding: 20px;
   background-color: white;
   border-radius: 10px;
+  width: 100%;
 }
 
 .view-canvas {
-  width: 1000px
+  width: 100%
 }
 
 .info-text {
@@ -289,7 +290,7 @@ img {
 
   /* Views */
   .view-canvas {
-    width: 700px
+    width: 100%;
   }
 
 }
@@ -315,7 +316,7 @@ img {
 
   /* Views */
   .view-canvas {
-    width: 500px
+    width: 100%;
   }
 
 }
