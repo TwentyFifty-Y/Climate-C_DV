@@ -13,11 +13,22 @@ import View1 from './pages/View1';
 import View2 from './pages/View2';
 import Custom from './pages/Custom';
 
+import jwt_decode from "jwt-decode"
+
 const jwtFromStorage =  window.localStorage.getItem('appAuthData');
 
 export function App() {
 
   const [ userJwt, setUserJwt ] = useState(jwtFromStorage);
+
+  function checkUserJwtValidity(userJwt) {
+    try {
+      jwt_decode(userJwt)
+      return true;
+    } catch (error) {
+      return false
+    }
+  }
 
   let authRoutes = <>
       <Route path="/login" element = { <Login login={(newJwt) => {
@@ -44,7 +55,7 @@ export function App() {
   */
 
   return (
-    <div> { userJwt != null ?
+    <div> { checkUserJwtValidity(userJwt) ?
       <>
         <Navbar />
           <div className="container2">
