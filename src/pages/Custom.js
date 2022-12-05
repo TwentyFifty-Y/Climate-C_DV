@@ -4,6 +4,7 @@ import V2 from "./visualisations/v2";
 import V3 from "./visualisations/v3";
 import V5 from "./visualisations/v5";
 import V6 from "./visualisations/v6";
+import V8 from "./visualisations/v8";
 
 
 export default function Custom() {
@@ -14,6 +15,7 @@ export default function Custom() {
     const [v34Open, setV34open] = useState(false);
     const [v5Open, setV5open] = useState(false);
     const [v6Open, setV6open] = useState(false);
+    const [v8Open, setV8Open] = useState(false);
     // const [vOpen, setVopen] = useState(false);
     
 
@@ -47,6 +49,12 @@ export default function Custom() {
     setOpen(false);
   }
 
+  const handleMenuFive = () => {
+    setV8Open(!v8Open);
+    setOpen(false);
+  }
+
+
   
 
 
@@ -63,24 +71,27 @@ export default function Custom() {
             />
         </div> */}
             <div className="dropdown">
-      <button onClick={handleOpen}>Dropdown</button>
+      <button onClick={handleOpen}>Select your charts!</button>
       {open ? (
         <ul className="menu">
           <li className="menu-item">
-          <button onClick={handleMenuOne}>v1-2</button>
+          <button onClick={handleMenuOne}>Global historical surface temperature anomalies from January 1850 onwards + Northern Hemisphere 2,000-year temperature reconstruction</button>
           </li>
           <li className="menu-item">
-          <button onClick={handleMenuTwo}>v3-4</button>
+          <button onClick={handleMenuTwo}>Atmospheric CO2 concentrations from Mauna Loa measurements starting 1958 + Antarctic Ice Core records of atmospheric CO2 ratios combined with Mauna Loa measurement</button>
           </li>
           <li className="menu-item">
-          <button onClick={handleMenuThree}>v5</button>
+          <button onClick={handleMenuThree}>Vostok Ice Core CO2 measurements, 417160 - 2342 years</button>
           </li>
           <li className="menu-item">
-          <button onClick={handleMenuFour}>v6</button>
+          <button onClick={handleMenuFour}>Ice core 800k year composite study CO2 measurements</button>
+          </li>
+          <li className="menu-item">
+          <button onClick={handleMenuFive}>Evolution of global temperature over the past two million years + CO2 emissions by country</button>
           </li>
         </ul>
       ) : null}
-      {open ? <div>Is Open</div> : <div>Is Closed</div>}
+      {/* {open ? <div>Is Open</div> : <div>Is Closed</div>} */}
       <div>
           {v12Open ? (
               <div className="flex-item">
@@ -107,6 +118,13 @@ export default function Custom() {
           {v6Open ? (
               <div className="flex-item">
               <V6/>
+              </div>
+            ): null}
+            </div>
+            <div>
+          {v8Open ? (
+              <div className="flex-item">
+              <V8/>
               </div>
             ): null}
             </div>
