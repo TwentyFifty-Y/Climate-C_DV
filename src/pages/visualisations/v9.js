@@ -143,8 +143,6 @@ export default function V9() {
                     default:
                         break;
                 }
-                //show an alert with the label and value
-                //alert(`The sector ${label} has ${value}% of the global emissions`);
             }
         }
     };
