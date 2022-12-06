@@ -14,10 +14,10 @@ export default function View2() {
           <span>{v1()}</span>
         </div>  */}
           <div className="flex-item">
-            <span>{V8()}</span>
+            {V8()}
           </div>
           <div className="flex-item">
-            <span>{V9()}</span>
+            {V9()}
           </div>
         </div>
       </div>
