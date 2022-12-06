@@ -242,6 +242,14 @@ img {
   width: 100%
 }
 
+.doughnut-chart {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .info-text {
   font-size: 13px;
   margin-top:20px
