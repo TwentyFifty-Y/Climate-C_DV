@@ -8,15 +8,18 @@ var randomColor = require('randomcolor');
 
 export default function V9() {
 
-    const [v9Data, setV9Data] = useState([]);
+    const [sectorData, setSectorData] = useState([]);
+    const [subSectorData, setSubSectorData] = useState([]);
+    const [infraSubSectorData, setInfraSubSectorData] = useState([]);
     const LINK = "//localhost:3000";
 
 
-    function view9Handler(array) {
-        let data = array.map((item) => {
+    function view9SectorHandler(array) {
+        let data = array.sector.map((item) => {
             return {
                 sector: item.sector,
-                percent: item.globalEmissionsPercentage,
+                percent: item.percent,
+                id: item.id
             }
         });
         return data;
@@ -44,21 +47,26 @@ export default function V9() {
 
     useEffect(() => {
         axios.get(LINK + "/views?id=view9Main").then((response) => {
-            setV9Data(view9Handler(response.data.sector));
+            setSectorData(response.data.sector);
+            setSubSectorData(response.data.subSector);
+            setInfraSubSectorData(response.data.infraSubSector);
         });
     }, [])
 
 
-    const chartData = (v9Data) => {
+    const chartData = (dataArray) => {
 
         return {
-            labels: v9Data.map((item) => {
+            labels: dataArray.map((item) => {
                 return item.sector;
             }),
             datasets: [{
                 label: 'Global Emissions by Sector',
-                data: v9Data.map((item) => {
+                data: dataArray.map((item) => {
                     return item.percent;
+                }),
+                ids: dataArray.map((item) =>{
+                    return item.id
                 }),
                 backgroundColor: randomColor({
                     count: 4,
@@ -76,18 +84,25 @@ export default function V9() {
                 //get the index of the bar
                 const index = elements[0].index;
                 //get the label of the bar
-                const label = chartData(v9Data).labels[index];
+                const label = chartData(sectorData).labels[index];
                 //get the value of the bar
-                const value = chartData(v9Data).datasets[0].data[index];
+                const value = chartData(sectorData).datasets[0].data[index];
+                //get the id of the bar
+                const id = sectorData[index].id;
+                console.log(subSectorData)
+                console.log(infraSubSectorData)
+                console.log(chartData(sectorData))
+                var s = "energy"
+                console.log(subSectorData[s])
                 //show an alert with the label and value
-                console.log(chartData(v9Data))
+                alert(`The sector ${label} has ${value}% of the global emissions`);
             }
         }
     };
 
     return (
         <div /*style={{ width: "1000px" }}*/ className="view-canvas doughnut-chart">
-            <Doughnut data={chartData(v9Data)} options={options} />
+            <Doughnut data={chartData(sectorData)} options={options} />
             <Text />
         </div>
     );
