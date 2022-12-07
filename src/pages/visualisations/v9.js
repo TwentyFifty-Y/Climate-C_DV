@@ -1,7 +1,7 @@
 import React from "react"
 import { useState, useEffect, useRef } from "react"
 import { Chart } from "chart.js/auto";
-import { Line, Doughnut } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import axios from 'axios';
 import 'chartjs-adapter-luxon';
 var randomColor = require('randomcolor');
@@ -119,7 +119,7 @@ export default function V9() {
                         console.log(id)
                         console.log(index)
 
-                        if (id == "energy") {
+                        if (id === "energy") {
                             id = subSectorData[id][index].id
 
                             if (id) {
@@ -140,6 +140,7 @@ export default function V9() {
                         chartReset(chart);
                         chart.update();
                         sync = 0;
+                        break;
                     default:
                         break;
                 }
