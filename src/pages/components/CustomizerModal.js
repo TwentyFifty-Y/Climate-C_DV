@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
+import axios from 'axios';
+import uniqid from 'uniqid';
 
-
-export default function Modal({ showModal, setShowModal }) {
+export default function Modal({ showModal, setShowModal, userId, customViewsArray }) {
 
     const [views, setViews] = useState({
         v1: false,
@@ -12,6 +13,8 @@ export default function Modal({ showModal, setShowModal }) {
         v8: false,
         v9: false
     });
+
+    const [viewTitle, setViewTitle] = useState("");
 
     const handleChange = e => {
         const checked = e.target.checked;
@@ -26,6 +29,22 @@ export default function Modal({ showModal, setShowModal }) {
         views[checkedName] = checked;
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        setShowModal(prev => !prev);
+        const json = {
+            viewId: uniqid(),
+            viewName: viewTitle,
+            views: views
+        }
+        // push json into customViewsArray
+        customViewsArray.push(json);
+        axios.post('http://localhost:3000/custom-views', { 
+            id: userId,
+            json: JSON.stringify(customViewsArray)
+        })
+    }
+
     return (
         <div>
             {showModal ?
@@ -37,7 +56,10 @@ export default function Modal({ showModal, setShowModal }) {
                                 <button className="close" onClick={() => setShowModal(prev => !prev)}>X</button>
                             </div>
                             <div className="modal-body">
-                                <form className="form-horizontal" action="">
+                                <form className="form-horizontal" onSubmit={handleSubmit}>
+                                    <div>
+                                        <input type="text" placeholder="View Title" onChange={e => setViewTitle(e.target.value)}/>
+                                    </div>
                                     <div>
                                         <input type="checkbox" name="v1" id="v1" value="true" onChange={handleChange}  />
                                         <label htmlFor="v1"> Global historical surface temperature anomalies from January 1850 onwards</label>
