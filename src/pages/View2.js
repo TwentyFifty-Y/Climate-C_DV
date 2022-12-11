@@ -1,5 +1,4 @@
 import React from 'react';
-import v1 from "./visualisations/v1";
 import v2 from "./visualisations/v2";
 import V8 from "./visualisations/v8";
 import V9 from "./visualisations/v9";
