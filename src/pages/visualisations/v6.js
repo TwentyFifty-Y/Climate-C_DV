@@ -174,11 +174,6 @@ export default function V6() {
         scales: {
             xAxis: {
                 type: "linear",
-                // type: "time",
-                // time: {
-                //     unit: "year",
-                //     stepSize: 10
-                // },
                 max: new Date().getFullYear(),
                 ticks: {
                     // Include appropriate year labels
@@ -209,7 +204,7 @@ export default function V6() {
         },
     };
     return (
-        <div /*style={{ width: "1000px" }}*/ className="view-canvas">
+        <div className="view-canvas">
             <Line options={options} data={chartData(v6Data, v7Data, v10Data)} />
             <Text />
         </div>
