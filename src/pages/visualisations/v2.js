@@ -1,30 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// import {
-//   Chart as ChartJS,
-//   CategoryScale,
-//   LinearScale,
-//   PointElement,
-//   LineElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-// } from 'chart.js';
 import { Chart } from "chart.js/auto";
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 import 'chartjs-adapter-luxon';
-
-// import { resetZoom } from 'chartjs-plugin-zoom';
-
-// ChartJS.register(
-//   CategoryScale,
-//   LinearScale,
-//   PointElement,
-//   LineElement,
-//   Title,
-//   Tooltip,
-//   Legend
-// );
 
 export default function V2() {
 
@@ -40,7 +18,6 @@ export default function V2() {
                         <p className="info-text">It also displays Northern Hemisphere temperature reconstruction for the past 2,000 years. Data provided by <a href="https://bolin.su.se/data/moberg-2012-nh-1?n=moberg-2005" target="_blank">Bolin Centre for Climate Research</a></p>
                     </div>
                 }
-
             </React.Fragment>
         );
     };
@@ -84,7 +61,6 @@ export default function V2() {
         });
     }, [])
 
-
     const chartData = (globalAnnualData, globalMonthlyData, northAnnualData, northMonthlyData, southAnnualData, southMonthlyData, view2Data) => {
         return {
             datasets: [
@@ -101,7 +77,6 @@ export default function V2() {
                     pointRadius: 0,
                     borderWidth: 2,
                 },
-
                 {
                     label: "Global Monthly Anomaly",
                     data: globalMonthlyData,
@@ -193,7 +168,7 @@ export default function V2() {
             },
             title: {
                 display: true,
-                text: "Time Line Graph Demonstration",
+                text: "Global historical surface temperature anomalies",
             },
         },
         scales: {
@@ -210,8 +185,7 @@ export default function V2() {
     };
 
     return (
-        <div /*style={{ width: "1000px" }}*/ className="view-canvas">
-            {/* <h1>TimeLineGraphDemo</h1> */}
+        <div className="view-canvas">
             <Line options={options} data={chartData(globalAnnualData, globalMonthlyData, northAnnualData, northMonthlyData, southAnnualData, southMonthlyData, v2Data)} />
             <Text />
         </div>

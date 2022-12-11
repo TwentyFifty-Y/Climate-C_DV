@@ -1,6 +1,6 @@
-import React from "react"
-import { useState, useEffect } from "react"
+import React from "react";
 import { Chart } from "chart.js/auto";
+import { useState, useEffect } from "react";
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 import 'chartjs-adapter-luxon';
@@ -42,10 +42,9 @@ export default function V5() {
                 {showText &&
                     <div>
                         <p className="info-text">Historical Carbon Dioxide Record from the Vostok Ice Core.
-                         Data provided from <a href="https://cdiac.ess-dive.lbl.gov/trends/co2/vostok.html" target="_blank">CDIAC</a></p>
+                         Data provided from <a href="https://cdiac.ess-dive.lbl.gov/trends/co2/vostok.html" target="_blank" rel="noopener noreferrer">CDIAC</a>.</p>
                     </div>
                 }
-
             </React.Fragment>
         );
     };
@@ -78,9 +77,7 @@ export default function V5() {
                     borderWidth: 2,
                 },
             ]
-
         }
-
     }
 
     const options = {
@@ -97,21 +94,16 @@ export default function V5() {
         },
         scales: {
             xAxis: {
-                reverse: true,
-                // type: "time",
-                // time: {
-                //     unit: "year",
-                //     stepSize: 100,
-                // },
-                
+                reverse: true,               
             },
             yAxis: {
                 type: "linear",
             },
         },
     };
+    
     return (
-        <div /*style={{ width: "1000px" }}*/ className="view-canvas">
+        <div className="view-canvas">
             <Line data={chartData(v5Data)} options={options} />
             <Text />
         </div>

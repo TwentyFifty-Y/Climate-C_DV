@@ -1,5 +1,4 @@
 import React from 'react';
-import v2 from "./visualisations/v2";
 import V8 from "./visualisations/v8";
 import V9 from "./visualisations/v9";
 
@@ -10,9 +9,6 @@ export default function View2() {
         <h1 className="title">Emission sources</h1>
         <p>You may hide elements of the charts by clicking the color box or the title of the line. </p>
         <div id="flex-container">
-          {/* <div className="flex-item">
-          <span>{v1()}</span>
-        </div>  */}
           <div className="flex-item">
             {V8()}
           </div>
@@ -21,7 +17,6 @@ export default function View2() {
           </div>
         </div>
       </div>
-
     </>
   )
 }

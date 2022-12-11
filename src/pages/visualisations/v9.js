@@ -1,6 +1,6 @@
-import React from "react"
-import { useState, useEffect, useRef } from "react"
+import React from "react";
 import { Chart } from "chart.js/auto";
+import { useState, useEffect, useRef } from "react";
 import { Doughnut } from 'react-chartjs-2';
 import axios from 'axios';
 import 'chartjs-adapter-luxon';
@@ -26,10 +26,9 @@ export default function V9() {
                 <br />
                 {showText &&
                     <div>
-                        <p className="info-text">This pie chart displays CO2 emissions by sectors. Data provided from <a href="https://ourworldindata.org/emissions-by-sector#co2-emissions-by-sector" target="_blank">Our World in Data.</a></p>
+                        <p className="info-text">This pie chart displays CO2 emissions by sectors. Data provided from <a href="https://ourworldindata.org/emissions-by-sector#co2-emissions-by-sector" target="_blank" rel="noopener noreferrer">Our World in Data</a>.</p>
                     </div>
                 }
-
             </React.Fragment>
         )
     };
@@ -41,7 +40,6 @@ export default function V9() {
             setInfraSubSectorData(response.data.infraSubSector);
         });
     }, [])
-
 
     const chartData = (dataArray) => {
         return {
@@ -62,7 +60,6 @@ export default function V9() {
                 }),
             }]
         }
-
     }
 
     let sync = 0;
@@ -172,7 +169,7 @@ export default function V9() {
     }
 
     return (
-        <div /*style={{ width: "1000px" }}*/ className="view-canvas doughnut-chart">
+        <div className="view-canvas doughnut-chart">
             <Doughnut ref={chartRef} data={chartData(sectorData)} options={options} />
             <Text />
             <SectionText />

@@ -1,6 +1,6 @@
-import React from "react"
-import { useState, useEffect } from "react"
+import React from "react";
 import { Chart } from "chart.js/auto";
+import { useState, useEffect } from "react";
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 import 'chartjs-adapter-luxon';
@@ -24,12 +24,11 @@ export default function V3() {
                 <br />
                 {showText &&
                     <div>
-                        <p className="info-text">Graph displaying the atmospheric CO2 concentrations from Mauna Loa measurements, starting 1958. Data provided from <a href="https://gml.noaa.gov/ccgg/about/co2_measurements.html" target="_blank">Global Monitoring Laboratory.</a></p>
-                        <p className="info-text">It also shows the Antarctic Ice Core records of atmospheric CO2 ratios combined with Mauna Loa measurement. Data provided from <a href="https://cdiac.ess-dive.lbl.gov/trends/co2/lawdome.html" target="_blank">the CDIAC (Carbon Dioxide Information Analysis Center).</a></p>
-                        <p className="info-text">The dots represent events related to the Human evolution. Data provided from <a href="https://www.southampton.ac.uk/~cpd/history.html" target="_blank">the CDIAC (Carbon Dioxide Information Analysis Center).</a></p>
+                        <p className="info-text">Graph displaying the atmospheric CO2 concentrations from Mauna Loa measurements, starting 1958. Data provided from <a href="https://gml.noaa.gov/ccgg/about/co2_measurements.html" target="_blank" rel="noopener noreferrer">Global Monitoring Laboratory</a>.</p>
+                        <p className="info-text">It also shows the Antarctic Ice Core records of atmospheric CO2 ratios combined with Mauna Loa measurement. Data provided from <a href="https://cdiac.ess-dive.lbl.gov/trends/co2/lawdome.html" target="_blank" rel="noopener noreferrer">the CDIAC</a>.</p>
+                        <p className="info-text">The dots represent events related to the Human evolution. Data provided from <a href="https://www.southampton.ac.uk/~cpd/history.html" target="_blank" rel="noopener noreferrer">the CDIAC (Carbon Dioxide Information Analysis Center)</a>.</p>
                     </div>
                 }
-
             </React.Fragment>
         );
     };
@@ -42,19 +41,6 @@ export default function V3() {
     const [v10ForV3, setV10ForV3]= useState([])
 
     const LINK = "//localhost:3000";
-
-    // function view4Handler(array) {
-    //     let data = array.map((item) => {
-    //         const yearRaw = Math.abs(1950 - Number(item.airAgeYear));
-    //         console.log(typeof yearRaw);
-    //         const year = "-" + Number(yearRaw).padStart(6, "0");
-    //         return {
-    //             time: year,
-    //             mean: item.co2ppm
-    //         }
-    //     })
-    //     return data;
-    // }
 
     function view4Handler(array) {
         let data = array.map((item) => {
@@ -122,7 +108,6 @@ export default function V3() {
                         yAxisKey: "mean",
                     },
                     pointRadius: 0,
-
                 },
                 {
                     label: "Mauna Loa Monthly Atmospheric CO2 Concentration",
@@ -228,7 +213,7 @@ export default function V3() {
     };
 
     return (
-        <div /*style={{ width: "1000px" }}*/ className="view-canvas">
+        <div className="view-canvas">
             <Line data={chartData(maunaLoaAnnualData, maunaLoaMonthly, v4SampleOne, v4SampleTwo, v4SampleThree,v10ForV3)} options={options} />
             <Text />
         </div>
