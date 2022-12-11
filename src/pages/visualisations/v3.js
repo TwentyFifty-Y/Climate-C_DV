@@ -26,6 +26,7 @@ export default function V3() {
                     <div>
                         <p className="info-text">Graph displaying the atmospheric CO2 concentrations from Mauna Loa measurements, starting 1958. Data provided from <a href="https://gml.noaa.gov/ccgg/about/co2_measurements.html" target="_blank">Global Monitoring Laboratory.</a></p>
                         <p className="info-text">It also shows the Antarctic Ice Core records of atmospheric CO2 ratios combined with Mauna Loa measurement. Data provided from <a href="https://cdiac.ess-dive.lbl.gov/trends/co2/lawdome.html" target="_blank">the CDIAC (Carbon Dioxide Information Analysis Center).</a></p>
+                        <p className="info-text">The dots represent events related to the Human evolution. Data provided from <a href="https://www.southampton.ac.uk/~cpd/history.html" target="_blank">the CDIAC (Carbon Dioxide Information Analysis Center).</a></p>
                     </div>
                 }
 
