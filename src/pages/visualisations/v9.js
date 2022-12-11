@@ -14,7 +14,7 @@ export default function V9() {
 
     const chartRef = useRef(null);
 
-    const LINK = "http://localhost:3000";
+    const LINK = "http://ec2-3-71-106-10.eu-central-1.compute.amazonaws.com:3000";
 
     const Text = () => {
         const [showText, setShowText] = useState(false);

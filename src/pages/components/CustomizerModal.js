@@ -39,7 +39,7 @@ export default function Modal({ showModal, setShowModal, userId, customViewsArra
         }
         // push json into customViewsArray
         customViewsArray.push(json);
-        axios.post('http://localhost:3000/custom-views', { 
+        axios.post('http://ec2-3-71-106-10.eu-central-1.compute.amazonaws.com:3000/custom-views', { 
             id: userId,
             json: JSON.stringify(customViewsArray)
         })

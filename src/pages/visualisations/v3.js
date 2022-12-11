@@ -40,7 +40,7 @@ export default function V3() {
     const [v4SampleThree, setV4SampleThree] = useState([]);
     const [v10ForV3, setV10ForV3]= useState([])
 
-    const LINK = "http://localhost:3000";
+    const LINK = "http://ec2-3-71-106-10.eu-central-1.compute.amazonaws.com:3000";
 
     function view4Handler(array) {
         let data = array.map((item) => {

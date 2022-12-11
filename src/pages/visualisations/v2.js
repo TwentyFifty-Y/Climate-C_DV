@@ -30,7 +30,7 @@ export default function V2() {
     const [southMonthlyData, setSouthMonthlyData] = useState([]);
     const [v2Data, setV2Data] = useState([])
 
-    const LINK = "http://localhost:3000";
+    const LINK = "http://ec2-3-71-106-10.eu-central-1.compute.amazonaws.com:3000";
 
     useEffect(() => {
         axios.get(LINK + "/views?id=view1GlobalAnnual").then((response) => {
