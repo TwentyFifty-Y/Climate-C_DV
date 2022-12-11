@@ -41,7 +41,8 @@ export default function V5() {
                 <br />
                 {showText &&
                     <div>
-                        <p className="info-text">. Data provided from <a href=""></a></p>
+                        <p className="info-text">Historical Carbon Dioxide Record from the Vostok Ice Core.
+                         Data provided from <a href="https://cdiac.ess-dive.lbl.gov/trends/co2/vostok.html" target="_blank">CDIAC</a></p>
                     </div>
                 }
 

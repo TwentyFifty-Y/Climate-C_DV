@@ -65,9 +65,11 @@ export default function V6() {
                 {showText &&
                     <div>
                         <p className="info-text"></p>
-                        <p className="info-text"> This line graph shows the changes in the atmospheric co2 concentrations in ice cores
-                            in the southern hemisphere for the past 800 000 years. <br />
-                            Data is from <a href="https://www.ncei.noaa.gov/access/paleo-search/study/17975">National Centers for Environmental Information</a></p>
+                        <p className="info-text"> These line graph shows the changes in the atmospheric co2 concentrations in ice cores
+                            in the southern hemisphere for the past 800 000 years and 
+                            the evolution of global temperature over the past two million years 
+                            The spots marks some events in human history.
+                            Data is from <a href="https://www.ncei.noaa.gov/access/paleo-search/study/17975" target="_blank">National Centers for Environmental Information</a></p>
                     </div>
                 }
 

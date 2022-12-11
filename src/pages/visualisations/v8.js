@@ -39,9 +39,8 @@ export default function V8() {
                 {showText &&
                     <div>
                         <p className="info-text"></p>
-                        <p className="info-text"> This line graph shows the changes in the atmospheric co2 concentrations in ice cores
-                            in the southern hemisphere for the past 800 000 years. <br />
-                            Data is from <a href="https://www.ncei.noaa.gov/access/paleo-search/study/17975">National Centersfor Environmental Information</a></p>
+                        <p className="info-text"> This stacked line graph shows co2 emissions of each country over time. <br />
+                            Data is from <a href="https://essd.copernicus.org/articles/14/1917/2022/" target="_blank">Earth System Science Data</a>. Data can be accessed through <a href="https://data.icos-cp.eu/licence_accept?ids=%5B%22lApekzcmd4DRC34oGXQqOxbJ%22%5D" target="_target">here</a></p>
                     </div>
                 }
 
