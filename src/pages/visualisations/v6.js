@@ -11,7 +11,6 @@ export default function V6() {
             const withoutMinus = String(num).slice(1);
             return '-' + withoutMinus.padStart(totalLength, '0');
         }
-
         return String(num).padStart(totalLength, '0');
     }
 
@@ -53,7 +52,6 @@ export default function V6() {
         return data;
     }
  
-
     const Text = () => {
         const [showText, setShowText] = useState(false);
 
@@ -69,10 +67,9 @@ export default function V6() {
                             in the southern hemisphere for the past 800,000 years and 
                             the evolution of global temperature over the past two million years. 
                             The spots marks some events in human history.
-                            Data is from <a href="https://www.ncei.noaa.gov/access/paleo-search/study/17975" target="_blank">National Centers for Environmental Information.</a></p>
+                            Data is from <a href="https://www.ncei.noaa.gov/access/paleo-search/study/17975" target="_blank" rel="noopener noreferrer">National Centers for Environmental Information</a>.</p>
                     </div>
                 }
-
             </React.Fragment>
         )
     };
@@ -96,8 +93,6 @@ export default function V6() {
         })
 
     }, [])
-
-
 
     const chartData = (v6Data, v7Data, v10Data) => {
         return {
@@ -143,9 +138,9 @@ export default function V6() {
                     yAxisID: "yAxis2"
                 }
             ],
-
         }
     }
+    
     const options = {
         animation: false,
         responsive: true,
@@ -174,11 +169,6 @@ export default function V6() {
         scales: {
             xAxis: {
                 type: "linear",
-                // type: "time",
-                // time: {
-                //     unit: "year",
-                //     stepSize: 10
-                // },
                 max: new Date().getFullYear(),
                 ticks: {
                     // Include appropriate year labels
@@ -204,12 +194,11 @@ export default function V6() {
                     display: false
                 },
             },
-            
-
         },
     };
+    
     return (
-        <div /*style={{ width: "1000px" }}*/ className="view-canvas">
+        <div className="view-canvas">
             <Line options={options} data={chartData(v6Data, v7Data, v10Data)} />
             <Text />
         </div>

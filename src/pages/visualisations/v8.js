@@ -32,7 +32,6 @@ export default function V8() {
         const [showText, setShowText] = useState(false);
 
         return (
-
             <React.Fragment>
                 <button className="btn btn-outline-primary btn-info" onClick={() => setShowText(!showText)}>Infos</button>
                 <br />
@@ -40,10 +39,9 @@ export default function V8() {
                     <div>
                         <p className="info-text"></p>
                         <p className="info-text"> This stacked line graph shows CO2 emissions of each country over time. <br />
-                            Data is from <a href="https://essd.copernicus.org/articles/14/1917/2022/" target="_blank">Earth System Science Data</a>. Data can be accessed through <a href="https://data.icos-cp.eu/licence_accept?ids=%5B%22lApekzcmd4DRC34oGXQqOxbJ%22%5D" target="_target">here.</a></p>
+                            Data is from <a href="https://essd.copernicus.org/articles/14/1917/2022/" target="_blank" rel="noopener noreferrer">Earth System Science Data</a>. Data can be accessed through <a href="https://data.icos-cp.eu/licence_accept?ids=%5B%22lApekzcmd4DRC34oGXQqOxbJ%22%5D" target="_target" rel="noopener noreferrer">here</a>.</p>
                     </div>
                 }
-
             </React.Fragment>
         )
     };
@@ -78,17 +76,6 @@ export default function V8() {
                     fill: true
                 }
             })
-            // label: "Atmospheric co2 concentrations in ice cores in the southern hemisphere",
-            //     data: v6Data,
-            //         borderColor: "rgba(55, 87, 62)",
-            //             backgroundColor: "rgb(55, 87, 62)",
-            //                 parsing: {
-            //     xAxisKey: "time",
-            //         yAxisKey: "mean",
-            //     },
-            // pointRadius: 0,
-            //     borderWidth: 1,
-            //         yAxisID: "yAxis"
         }
     }
 
@@ -126,7 +113,7 @@ export default function V8() {
 
     //return v8Data looped through and create a line chart for each country
     return (
-        <div /*style={{ width: "1000px" }}*/ className="view-canvas">
+        <div className="view-canvas">
             <Line options={options} data={chartData(v8Data)} />
             <Text />
         </div>
