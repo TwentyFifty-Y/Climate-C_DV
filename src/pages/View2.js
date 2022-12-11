@@ -7,6 +7,7 @@ export default function View2() {
     <>
       <div className="container-view">
         <h1 className="title">Emission sources</h1>
+        <p>You may hide elements of the charts by clicking the color box or the title of the line. </p>
         <div id="flex-container">
           <div className="flex-item">
             {V8()}

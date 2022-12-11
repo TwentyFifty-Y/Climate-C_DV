@@ -70,7 +70,7 @@ export function App() {
               }/>
               <Route path = "/view1" element = {<View1/>} />
               <Route path = "/view2" element = {<View2/>} />
-              <Route path = "/custom" element = {<Custom/>} />
+              <Route path = "/custom" element = {<Custom token = {userJwt}/>} />
               <Route path = "*" element = { <Home2/> }/>
             </Routes>
           </div>
