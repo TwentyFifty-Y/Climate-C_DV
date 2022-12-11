@@ -40,27 +40,30 @@ export default function Modal({ showModal, setShowModal }) {
                                 <form className="form-horizontal" action="">
                                     <div>
                                         <input type="checkbox" name="v1" id="v1" value="true" onChange={handleChange}  />
-                                        <label htmlFor="v1">View 1-2</label>
+                                        <label htmlFor="v1"> Global historical surface temperature anomalies from January 1850 onwards</label>
+                                        <label htmlFor="v1">  + Northern Hemisphere 2,000-year temperature reconstruction </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="v3" id="v3" value="true" onChange={handleChange}  />
-                                        <label htmlFor="v3">View 3-4</label>
+                                        <label htmlFor="v3">Atmospheric CO2 concentrations from Mauna Loa measurements starting 1958</label>
+                                        <label htmlFor="v3">+ Antarctic Ice Core records of atmospheric CO2 ratios combined with Mauna Loa measurements</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="v5" id="v5" value="true" onChange={handleChange}  />
-                                        <label htmlFor="v5">View 5</label>
+                                        <label htmlFor="v5">Vostok Ice Core CO2 measurements, 417160 - 2342 year</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="v6" id="v6" value="true" onChange={handleChange}  />
-                                        <label htmlFor="v6">View 6-7</label>
+                                        <label htmlFor="v6">Ice core 800k year composite study CO2 measurement</label>
+                                        <label htmlFor="v6">+ Evolution of global temperature over the past two million years</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="v8" id="v8" value="true" onChange={handleChange}  />
-                                        <label htmlFor="v8">View 8</label>
+                                        <label htmlFor="v8">CO2 emissions by country</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="v9" id="v9" value="true" onChange={handleChange}  />
-                                        <label htmlFor="v9">View 9</label>
+                                        <label htmlFor="v9">CO2 emissions by sectors</label>
                                     </div>
                                     <input type="submit" value="Submit" />
                                 </form>
