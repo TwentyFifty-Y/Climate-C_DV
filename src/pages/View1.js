@@ -8,6 +8,7 @@ export default function View1() {
   return (
     <div className="container-view">
       <h1 className="title">Atmospheric CO<span id="sub">2</span> and Emissions</h1>
+      <p>You may hide elements of the charts by clicking the color box or the title of the line. </p>
       <div id="flex-container">
         <div className="flex-item">
           {v2()}
