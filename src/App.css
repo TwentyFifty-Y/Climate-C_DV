@@ -304,7 +304,8 @@ img {
 .form-horizontal {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+  
 }
 
 .modal-background {
@@ -356,6 +357,12 @@ img {
     width: 100%;
   }
 
+  /* Profile page*/
+
+  table td {
+    font-size: 15px;
+  }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -381,6 +388,12 @@ img {
   .view-canvas {
     width: 100%;
   }
+  
+  /* Profile page*/
+
+  table td {
+    font-size: 13px;
+  }
 
 }
 
@@ -396,6 +409,12 @@ img {
   }
 
   .btn-home, .btn-nav1, .btn-info {
+    font-size: 12px;
+  }
+
+  /* Profile page*/
+
+  table td {
     font-size: 12px;
   }
 

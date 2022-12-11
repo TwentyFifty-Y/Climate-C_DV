@@ -36,8 +36,8 @@ export default function V2() {
                 <br />
                 {showText &&
                     <div>
-                        <p className="info-text">Graph that displays historical surface temperature anomalies relative to a 1961-1990 reference period globally and by hemisphere, also with monthly an annual data. Data provided from <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/">HadCRUT5</a></p>
-                        <p className="info-text">It also displays Northern Hemisphere temperature reconstruction for the past 2,000. Data provided by <a href="https://bolin.su.se/data/moberg-2012-nh-1?n=moberg-2005">Bolin Centre for Climate Research</a></p>
+                        <p className="info-text">Graph that displays historical surface temperature anomalies relative to a 1961-1990 reference period globally and by hemisphere, also with monthly an annual data. Data provided from <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/" target="_blank">HadCRUT5</a></p>
+                        <p className="info-text">It also displays Northern Hemisphere temperature reconstruction for the past 2,000 years. Data provided by <a href="https://bolin.su.se/data/moberg-2012-nh-1?n=moberg-2005" target="_blank">Bolin Centre for Climate Research</a></p>
                     </div>
                 }
 
@@ -211,7 +211,7 @@ export default function V2() {
 
     return (
         <div /*style={{ width: "1000px" }}*/ className="view-canvas">
-            <h1>TimeLineGraphDemo</h1>
+            {/* <h1>TimeLineGraphDemo</h1> */}
             <Line options={options} data={chartData(globalAnnualData, globalMonthlyData, northAnnualData, northMonthlyData, southAnnualData, southMonthlyData, v2Data)} />
             <Text />
         </div>
