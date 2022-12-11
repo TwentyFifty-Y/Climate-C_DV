@@ -26,9 +26,7 @@ export default function V9() {
                 <br />
                 {showText &&
                     <div>
-                        <p className="info-text"></p>
-                        <p className="info-text"><br />
-                            <a href="https://ourworldindata.org/emissions-by-sector#co2-emissions-by-sector"></a></p>
+                        <p className="info-text">This pie chart displays CO2 emissions by sectors. Data provided from <a href="https://ourworldindata.org/emissions-by-sector#co2-emissions-by-sector" target="_blank">Our World in Data.</a></p>
                     </div>
                 }
 
