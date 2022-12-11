@@ -51,7 +51,7 @@ export default function V5() {
 
     const [v5Data, setV5Data] = useState([])
 
-    const LINK = "//localhost:3000";
+    const LINK = "http://localhost:3000";
 
     useEffect(() => {
         axios.get(LINK + "/views?id=view5Main").then((response) => {

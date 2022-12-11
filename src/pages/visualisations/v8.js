@@ -47,7 +47,7 @@ export default function V8() {
     };
 
     const [v8Data, setV8Data] = useState([]);
-    const LINK = "//localhost:3000";
+    const LINK = "http://localhost:3000";
 
     useEffect(() => {
         axios.get(LINK + "/views?id=view8Main").then((response) => {

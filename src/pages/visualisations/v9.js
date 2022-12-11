@@ -14,7 +14,7 @@ export default function V9() {
 
     const chartRef = useRef(null);
 
-    const LINK = "//localhost:3000";
+    const LINK = "http://localhost:3000";
 
     const Text = () => {
         const [showText, setShowText] = useState(false);
