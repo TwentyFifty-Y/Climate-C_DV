@@ -77,7 +77,7 @@ export default function V6() {
     const [v6Data, setv6Data] = useState([]);
     const [v7Data, setV7Data] = useState([]);
     const [v10Data, setV10Data] = useState([]);
-    const LINK = "//ec2-3-71-106-10.eu-central-1.compute.amazonaws.com:3000";
+    const LINK = "//express.twentyfifty-y.com";
 
     useEffect(() => {
         axios.get(LINK + "/views?id=view6Main").then((response) => {
