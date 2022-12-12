@@ -16,6 +16,8 @@ export default function Modal({ showModal, setShowModal, userId, customViewsArra
 
     const [viewTitle, setViewTitle] = useState("");
 
+    const LINK = "//express.twentyfifty-y.com"
+
     const handleChange = e => {
         const checked = e.target.checked;
 
@@ -39,7 +41,7 @@ export default function Modal({ showModal, setShowModal, userId, customViewsArra
         }
         // push json into customViewsArray
         customViewsArray.push(json);
-        axios.post('http://ec2-3-71-106-10.eu-central-1.compute.amazonaws.com:3000/custom-views', { 
+        axios.post(LINK+'/custom-views', { 
             id: userId,
             json: JSON.stringify(customViewsArray)
         })

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Constants from './Constants.json'
 import jwt_decode from "jwt-decode"
 import Modal from "./components/CustomizerModal";
 
@@ -18,7 +19,7 @@ export default function Custom(props) {
     const decodedToken = jwt_decode(props.token);
     let quickUserId = decodedToken.user.id.S;
     setUserId(quickUserId)
-    axios.get('http://ec2-3-71-106-10.eu-central-1.compute.amazonaws.com:3000/custom-views?id=' + quickUserId, {
+    axios.get(Constants.API_ADDRESS + '/custom-views?id=' + quickUserId, {
     }).then((response) => {
       setCustomViewsArray(response.data)
       console.log(response.data)
@@ -31,7 +32,7 @@ export default function Custom(props) {
 
     console.log(customViewsArray.findIndex(item => item.viewId === id))
     customViewsArray.splice(customViewsArray.findIndex(item => item.viewId === id), 1)
-    axios.post('http://ec2-3-71-106-10.eu-central-1.compute.amazonaws.com:3000/custom-views', {
+    axios.post(Constants.API_ADDRESS + '/custom-views', {
       id: userId,
       json: JSON.stringify(customViewsArray)
     }).then(()=>{
