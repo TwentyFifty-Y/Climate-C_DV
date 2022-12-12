@@ -47,6 +47,8 @@ export default function Modal({ showModal, setShowModal, userId, customViewsArra
             id: userId,
             json: JSON.stringify(customViewsArray)
         })
+        setViewTitle("");
+        setViewDescription("");
     }
 
     return (
