@@ -12,6 +12,7 @@ import Profile from './pages/Profile';
 import View1 from './pages/View1';
 import View2 from './pages/View2';
 import Custom from './pages/Custom';
+import CustomView from './pages/CustomView';
 
 import jwt_decode from "jwt-decode"
 
@@ -71,6 +72,7 @@ export function App() {
               <Route path = "/view1" element = {<View1/>} />
               <Route path = "/view2" element = {<View2/>} />
               <Route path = "/custom" element = {<Custom token = {userJwt}/>} />
+              <Route path = "/your-view/:id" element = {<CustomView/>}/>
               <Route path = "*" element = { <Home2/> }/>
             </Routes>
           </div>
