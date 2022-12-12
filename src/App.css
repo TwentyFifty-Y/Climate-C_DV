@@ -263,6 +263,10 @@ img {
 .custom-container {
   background-color: var(--main-gray);
   padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 
 .dropdown {
