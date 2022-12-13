@@ -65,6 +65,12 @@ export default function V9() {
     let sync = 0;
     let id;
     const options = {
+        plugins: {
+            title: {
+                display: true,
+                text: "CO2 emissions by sector",
+            },
+        },
         //add a click event to the chart
         onClick: (event, elements) => {
             //if the click is on a bar
