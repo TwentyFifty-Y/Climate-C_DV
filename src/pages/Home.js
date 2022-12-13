@@ -31,7 +31,7 @@ export default function Home() {
         or coal for heating a building, for example. Clearing land and forests can also 
         release carbon dioxide. Landfills for garbage are a major source of methane emissions. 
         Energy, industry, transport, buildings, agriculture and land use are among the main emitters.</p>
-        <a className="ext-link" href="https://www.un.org/en/climatechange/what-is-climate-change">Read more here!</a>
+        <a className="ext-link" href="https://www.un.org/en/climatechange/what-is-climate-change" target="_blank" rel="noopener noreferrer">Read more here!</a>
         <br/><br/>
         <h2>We can pay the bill now, or pay dearly in the future</h2>
         
