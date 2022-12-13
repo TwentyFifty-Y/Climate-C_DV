@@ -5,7 +5,6 @@ import jwt_decode from "jwt-decode"
 import Modal from "./components/CustomizerModal";
 import { Link } from 'react-router-dom';
 
-
 export default function Custom(props) {
   const [showModal, setShowModal] = useState(false);
   const [customViewsArray, setCustomViewsArray] = useState([])
@@ -35,7 +34,6 @@ export default function Custom(props) {
     }).then(() => {
       window.location.reload(false);
     })
-
   }
 
   return (

@@ -149,36 +149,10 @@ export default function V9() {
         }
     };
 
-    const SectionText = () => {
-        switch (sync) {
-            case 0:
-                return (
-                    <React.Fragment>
-                        <p className="info-text">Sector</p>
-                    </React.Fragment>
-                )
-            case 1:
-                return (
-                    <React.Fragment>
-                        <p className="info-text">Sub Sector</p>
-                    </React.Fragment>
-                )
-            case 2:
-                return (
-                    <React.Fragment>
-                        <p className="info-text">Infra Sub Sector</p>
-                    </React.Fragment>
-                )
-            default:
-                break;
-        }
-    }
-
     return (
         <div className="view-canvas doughnut-chart">
             <Doughnut ref={chartRef} data={chartData(sectorData)} options={options} />
             <Text />
-            <SectionText />
         </div>
     );
 
