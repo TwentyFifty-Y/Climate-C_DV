@@ -21,7 +21,6 @@ export default function CustomView() {
                 {view.views.v6 ? <div className="flex-item">{v6()}</div> : null}
                 {view.views.v8 ? <div className="flex-item">{V8()}</div> : null}
                 {view.views.v9 ? <div className="flex-item">{V9()}</div> : null}
-
             </div>
         </div>
     )
