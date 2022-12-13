@@ -14,8 +14,8 @@ export default function V2() {
                 <br />
                 {showText &&
                     <div>
-                        <p className="info-text">Graph that displays historical surface temperature anomalies relative to a 1961-1990 reference period globally and by hemisphere, also with monthly an annual data. Data provided from <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/" target="_blank">HadCRUT5</a></p>
-                        <p className="info-text">It also displays Northern Hemisphere temperature reconstruction for the past 2,000 years. Data provided by <a href="https://bolin.su.se/data/moberg-2012-nh-1?n=moberg-2005" target="_blank">Bolin Centre for Climate Research</a></p>
+                        <p className="info-text">Graph that displays historical surface temperature anomalies relative to a 1961-1990 reference period globally and by hemisphere, also with monthly an annual data. Data provided from <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/" target="_blank" rel="noopener noreferrer">HadCRUT5</a></p>
+                        <p className="info-text">It also displays Northern Hemisphere temperature reconstruction for the past 2,000 years. Data provided by <a href="https://bolin.su.se/data/moberg-2012-nh-1?n=moberg-2005" target="_blank" rel="noopener noreferrer">Bolin Centre for Climate Research</a></p>
                     </div>
                 }
             </React.Fragment>
