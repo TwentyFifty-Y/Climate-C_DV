@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-
-
 export default function Home() {
   return (
     <div className="home-container">
@@ -34,17 +32,6 @@ export default function Home() {
         <a className="ext-link" href="https://www.un.org/en/climatechange/what-is-climate-change" target="_blank" rel="noopener noreferrer">Read more here!</a>
         <br/><br/>
         <h2>We can pay the bill now, or pay dearly in the future</h2>
-        
-        {/* <div>
-          { props.userLoggedIn ?
-              <Link to = "/view1">Go to protected view</Link>
-            :
-            <>
-              <Link to ="/login" type="button" className="btn btn-outline-primary btn-home btn-home-li btn-lg">Login</Link>
-              <Link to ="/signup" type="button" className="btn btn-outline-primary btn-home btn-home-su btn-lg">Sign up</Link>
-            </>
-          }
-        </div> */}
     </div>
   )
 }
