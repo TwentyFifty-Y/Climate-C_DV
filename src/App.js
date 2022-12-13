@@ -32,28 +32,14 @@ export function App() {
   }
 
   let authRoutes = <>
+      <Route path = "/view1" element = {<View1/>} />
+      <Route path = "/view2" element = {<View2/>} />
       <Route path="/login" element = { <Login login={(newJwt) => {
         window.localStorage.setItem('appAuthData', newJwt);
         setUserJwt(newJwt)
         }} /> }/>
       <Route path="/signup" element = { <Signup/> }/>
     </>
-    
-  // if(userJwt != null) {
-        
-  //   authRoutes = 
-  //     <Route path="/profile" element = { <Profile test="text" token={userJwt} logout={() => {
-  //     setUserJwt(null)
-  //     console.log("something")
-  //     window.localStorage.removeItem('appAuthData');
-  //   }} /> }/>
-  // }
-
-  /*  if(userJwt != null) {
-      authRoutes = 
-      <Route path="/profile" element={ <Profile userJwt={ userJwt } logout={() => setUserJwt(null)}/> }/>
-    }
-  */
 
   return (
     <div> { checkUserJwtValidity(userJwt) ?
@@ -81,9 +67,9 @@ export function App() {
       <>
         <Navbar1/>
         <Routes>
-          <Route path="/" element = { <Home /*userLoggedIn={userJwt != null}*//> }/>
+          <Route path="/" element = { <Home /> }/>
           { authRoutes }
-          <Route path="*" element = { <Home /*userLoggedIn={userJwt != null}*//> }/>
+          <Route path="*" element = { <Home /> }/>
         </Routes>
       </>
       }
