@@ -22,15 +22,12 @@ export default function Custom(props) {
     axios.get(Constants.API_ADDRESS + '/custom-views?id=' + quickUserId, {
     }).then((response) => {
       setCustomViewsArray(response.data)
-      console.log(response.data)
     })
   }, [])
 
   function handleDelete(id) {
-    console.log(id)
     // delete from customViewsArray the item with viewId === id
 
-    console.log(customViewsArray.findIndex(item => item.viewId === id))
     customViewsArray.splice(customViewsArray.findIndex(item => item.viewId === id), 1)
     axios.post(Constants.API_ADDRESS + '/custom-views', {
       id: userId,
@@ -48,7 +45,6 @@ export default function Custom(props) {
       <Modal showModal={showModal} setShowModal={setShowModal} userId={userId} customViewsArray={customViewsArray} />
       <div className="customViews">
         {customViewsArray.map((item) => {
-          console.log(item)
           var true_views = 0;
           //loop through  item.views and add up the true values
           for (var key in item.views) {

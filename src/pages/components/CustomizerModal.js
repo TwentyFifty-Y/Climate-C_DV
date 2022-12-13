@@ -22,11 +22,8 @@ export default function Modal({ showModal, setShowModal, userId, customViewsArra
     const handleChange = e => {
         const checked = e.target.checked;
 
-        const checkedValue = e.target.value;
-
         const checkedName = e.target.name;
 
-        console.log(checked, checkedValue, checkedName);
         console.log(views)
 
         views[checkedName] = checked;
@@ -46,9 +43,10 @@ export default function Modal({ showModal, setShowModal, userId, customViewsArra
         axios.post(LINK + '/custom-views', {
             id: userId,
             json: JSON.stringify(customViewsArray)
-        })
-        setViewTitle("");
-        setViewDescription("");
+        }).then(() => {
+            //reload page   
+            window.location.reload(false);
+        })      
     }
 
     return (
