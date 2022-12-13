@@ -58,12 +58,12 @@ export default function Custom(props) {
               <p>{true_views} views</p>
               <p>{item.viewDescription}</p>
               <div className="customViewButtons">
-                <button>
+                <button className="btn-view">
                   <Link to={`/your-view/:${item.viewId}`} state={item} className="nav-link">
                     View
                   </Link>
                 </button>
-                <button onClick={() => { handleDelete(item.viewId) }}>Delete</button>
+                <button className="btn-delete" onClick={() => { handleDelete(item.viewId) }}>Delete</button>
               </div>
             </div>
           )
